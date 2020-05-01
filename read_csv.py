@@ -28,7 +28,7 @@ def read_csv_create_dict(path):
             print(type(body_dict['Date'])) #this is a string
             #create a list of all months and years available in dictionary
             if body_dict['Date'] not in month_year:
-                month_year = month_year.append(body_dict['Date'])
+                month_year.append(body_dict['Date'])
 
         return output, month_year
 
