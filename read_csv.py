@@ -17,18 +17,18 @@ def read_csv_create_dict(path):
         next(csvfile) #skips header row
         for row in input_data:
             body_dict = {
-                'Title': row[0],
-                'Link': row[1],
-                'Source': row[2],
-                'Summary': row[3],
-                'Date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
+                'title': row[0],
+                'link': row[1],
+                'source': row[2],
+                'summary': row[3],
+                'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
             }
             output.append(body_dict)
 
-            print(type(body_dict['Date'])) #this is a string
+            print(type(body_dict['date'])) #this is a string
             #create a list of all months and years available in dictionary
-            if body_dict['Date'] not in month_year:
-                month_year.append(body_dict['Date'])
+            if body_dict['date'] not in month_year:
+                month_year.append(body_dict['date'])
 
         return output, month_year
 
