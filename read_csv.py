@@ -14,14 +14,13 @@ def read_csv_create_dict(path):
         input_data = csv.reader(csvfile, delimiter=";")
         output = []
         next(csvfile) #skips header row
-        format_str = '%d.%m.%Y'
         for row in input_data:
             body_dict = {
                 'Title': row[0],
                 'Link': row[1],
                 'Source': row[2],
                 'Summary': row[3],
-                'Date': datetime.strptime(row[4], format_str)
+                'Date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
             }
             output.append(body_dict)
         return output
