@@ -12,7 +12,7 @@ def read_csv_create_dict(path):
     """
     with open(path, newline='') as csvfile:
         input_data = csv.reader(csvfile, delimiter=";")
-        month_year = []
+    #    month_year = []
         output = []
         next(csvfile) #skips header row
         for row in input_data:
@@ -25,11 +25,20 @@ def read_csv_create_dict(path):
             }
             output.append(body_dict)
 
-            print(type(body_dict['date'])) #this is a string
             #create a list of all months and years available in dictionary
-            if body_dict['date'] not in month_year:
-                month_year.append(body_dict['date'])
+            #if body_dict['date'] not in month_year:
+                #month_year.append(body_dict['date'])
 
-        return output, month_year
+        return output
 
-print(read_csv_create_dict('./inputs/data_dec19.csv'))
+def pages(dict_articles):
+    month_year = []
+    for article in dict_articles:
+        date = article['date']
+        if date not in month_year:
+            month_year.append(date)
+
+    return month_year
+
+input = read_csv_create_dict('./inputs/data_dec19.csv')
+print(pages(input))
