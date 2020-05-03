@@ -28,17 +28,19 @@ def read_csv_create_dict(path):
 
 def pages(dict_articles):
     """
-    create a unique list of months and years. This will be the titles of pages.
+    create a dictionary with months and years as key with all corresponding articles.
     :type dict_articles: dictionary of articles defined by read_csv_create_dict function
-    :rtype list of 'Month YEAR'
+    :rtype dictionary
     """
-    month_year = []
+    dict_months = {}
     for article in dict_articles:
         date = article['date']
-        if date not in month_year:
-            month_year.append(date)
+        if date not in dict_months:
+            dict_months[date] = [article]
+        else:
+            dict_months[date].append(article)
 
-    return month_year
+    return dict_months
 
 DICT_INPUT = read_csv_create_dict('./inputs/data_dec19.csv')
 print(pages(DICT_INPUT))
