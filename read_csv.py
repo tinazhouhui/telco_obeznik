@@ -4,43 +4,59 @@ Read and transform data.
 import csv
 from datetime import datetime
 
-def read_csv_create_dict(path):
+def read_csv(path):
     """
-    read the input csv and create a dictionary
+    read the input csv
     :type path: path to the csvfile
-    :rtype dict
+    :rtype csv.reader object
     """
+    output = []
+
     with open(path, newline='') as csvfile:
         input_data = csv.reader(csvfile, delimiter=";")
-        output = []
-        next(csvfile) #skips header row
+        next(input_data) #skips header row
+
         for row in input_data:
-            body_dict = {
-                'title': row[0],
-                'link': row[1],
-                'source': row[2],
-                'summary': row[3],
-                'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
-            }
-            output.append(body_dict)
+            output.append(row) #transform data into list
 
-        return output
+    return output
 
-def pages(dict_articles):
+def articles(input_data):
+    """
+    create a dictionary from list
+    :type input_data: list
+    :rtype dict
+    """
+    articles = []
+
+    for row in input_data:
+        article_details = {
+            'title': row[0],
+            'link': row[1],
+            'source': row[2],
+            'summary': row[3],
+            'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
+        }
+        articles.append(article_details)
+
+    return articles
+
+def pages(articles):
     """
     create a dictionary with months and years as key with all corresponding articles.
-    :type dict_articles: dictionary of articles defined by read_csv_create_dict function
+    :type articles: dictionary of articles defined by read_csv_create_dict function
     :rtype dictionary
     """
-    dict_months = {}
-    for article in dict_articles:
+    pages_per_months = {}
+    for article in articles:
         date = article['date']
-        if date not in dict_months:
-            dict_months[date] = [article]
+        if date not in pages_per_months:
+            pages_per_months[date] = [article]
         else:
-            dict_months[date].append(article)
+            pages_per_months[date].append(article)
 
-    return dict_months
+    return pages_per_months
 
-DICT_INPUT = read_csv_create_dict('./inputs/data_dec19.csv')
-print(pages(DICT_INPUT))
+CSV_FILE = read_csv('./inputs/data_dec19.csv')
+ARTICLES = articles(CSV_FILE)
+print(pages(ARTICLES))
