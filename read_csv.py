@@ -25,7 +25,7 @@ def articles(input_data):
     """
     create a dictionary from list
     :type input_data: list
-    :rtype dict
+    :rtype list
     """
     articles = []
 
