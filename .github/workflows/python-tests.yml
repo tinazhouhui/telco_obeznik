@@ -1,10 +1,10 @@
-name: Test
+name: Python Tests
 on: [push]
 jobs:
-  test:
+  unittests:
     runs-on: ubuntu-latest
     steps:
-      - name: Prepare repo
+      - name: Prepare repository
         uses: actions/checkout@master
-      - name: Run unittest
+      - name: Run Unittest
         run: python3 -m unittest tests/*
