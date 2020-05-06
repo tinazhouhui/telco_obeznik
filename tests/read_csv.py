@@ -7,10 +7,5 @@ class TestReadCsv(unittest.TestCase):
     """
 
     def test_articles_empty(self):
-        input = []
-
-        print(articles)
-
-        output = articles(input)
-        print(output)
-        self.assertEqual('foo'.upper(), 'F1OO')
+        output = articles([])
+        self.assertDictEqual(output, {}, 'The output is not empty dictionary')
