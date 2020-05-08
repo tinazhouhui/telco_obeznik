@@ -1,3 +1,4 @@
 classes.py
 nosetests.json
 __pycache__
+.coverage
