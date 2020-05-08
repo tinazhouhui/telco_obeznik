@@ -25,7 +25,7 @@ def articles(input_data):
     """
     create a dictionary from list
     :type input_data: list
-    :rtype dict
+    :rtype list
     """
     articles = []
 
@@ -56,7 +56,3 @@ def pages(articles):
             pages_per_months[date].append(article)
 
     return pages_per_months
-
-CSV_FILE = read_csv('./inputs/data_dec19.csv')
-ARTICLES = articles(CSV_FILE)
-print(pages(ARTICLES))
