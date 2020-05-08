@@ -1,1 +1,3 @@
 classes.py
+nosetests.json
+__pycache__
