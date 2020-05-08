@@ -26,6 +26,23 @@ class TestReadCsv(unittest.TestCase):
         output = pages({})
         self.assertEqual(output, {}, 'The output is not empty dictionary')
 
+    def test_pages_keys(self):
+        input = [
+            {'title':'col1',
+            'link':'col2',
+            'source':'col3',
+            'summary':'col4',
+            'date':'December 2020'},
+            {'title':'col11',
+            'link':'col22',
+            'source':'col33',
+            'summary':'col44',
+            'date':'December 2020'},
+            ]
+        output = pages(input)
+        self.assertEqual(len(output), 1)
+        self.assertEqual(list(output.keys())[0], 'December 2020')
+
 if __name__ == '__main__':
     help(input_prep)
     unittest.main()
