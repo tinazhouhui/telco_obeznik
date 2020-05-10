@@ -2,30 +2,33 @@ class Validator:
     """
     Validates the input data from the csvfile.
     """
-    def email(self):
+    def __init__(self, value):
+        self.value = value
+
+    def is_email(self):
         """
         validates that input is an email.
         """
-        self.isemail()
-        return True
+        self.value
+        return False
 
-    def date(self):
+    def is_date(self):
         """
         validates that input is a date.
         """
-        self.isdate()
+        self.value
         return True
 
-    def link(self):
+    def is_link(self):
         """
         validates that input is a link.
         """
-        self.islink()
+        self.value
         return True
 
-    def text(self):
+    def is_text(self):
         """
         validates that input is a text.
         """
-        self.istext()
+        self.value
         return True
