@@ -49,7 +49,7 @@ def pages(input_articles):
     """
     pages_per_months = {}
     for article in input_articles:
-        date = input_articles['date']
+        date = article['date']
         if date not in pages_per_months:
             pages_per_months[date] = [article]
         else:
