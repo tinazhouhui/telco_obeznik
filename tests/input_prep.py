@@ -21,7 +21,7 @@ class TestReadCsv(unittest.TestCase):
         Test the correct formatting of date and connection to correct key.
         """
         article_input = [['col1', 'col2', 'col3', 'col4', '24.12.2020', 'col6']]
-        output = articles(input)
+        output = articles(article_input)
         self.assertEqual(output[0]['title'], "col1")
         self.assertEqual(output[0]['link'], "col2")
         self.assertEqual(output[0]['source'], "col3")
@@ -42,20 +42,20 @@ class TestReadCsv(unittest.TestCase):
         """
         pages_input = [
             {
-            'title':'col1',
-            'link':'col2',
-            'source':'col3',
-            'summary':'col4',
-            'date':'December 2020',
+                'title':'col1',
+                'link':'col2',
+                'source':'col3',
+                'summary':'col4',
+                'date':'December 2020',
             },
             {
-            'title':'col11',
-            'link':'col22',
-            'source':'col33',
-            'summary':'col44',
-            'date':'December 2020',
+                'title':'col11',
+                'link':'col22',
+                'source':'col33',
+                'summary':'col44',
+                'date':'December 2020',
             },
             ]
-        output = pages(input)
+        output = pages(pages_input)
         self.assertEqual(len(output), 1)
         self.assertEqual(list(output.keys())[0], 'December 2020')
