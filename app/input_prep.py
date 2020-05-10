@@ -23,11 +23,11 @@ def read_csv(path):
 
 def articles(input_data):
     """
-    create a dictionary from list
+    create a dictionary from list of articles.
     :type input_data: list
     :rtype list
     """
-    articles = []
+    articles_details = []
 
     for row in input_data:
         article_details = {
@@ -37,19 +37,19 @@ def articles(input_data):
             'summary': row[3],
             'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
         }
-        articles.append(article_details)
+        articles_details.append(article_details)
 
-    return articles
+    return articles_details
 
-def pages(articles):
+def pages(input_articles):
     """
     create a dictionary with months and years as key with all corresponding articles.
     :type articles: dictionary of articles defined by read_csv_create_dict function
     :rtype dictionary
     """
     pages_per_months = {}
-    for article in articles:
-        date = article['date']
+    for article in input_articles:
+        date = input_articles['date']
         if date not in pages_per_months:
             pages_per_months[date] = [article]
         else:
