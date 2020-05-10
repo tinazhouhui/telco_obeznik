@@ -23,6 +23,9 @@ def read_csv(path):
     return output
 
 def validate_data(raw_data):
+    """
+    Validates that raw input data are in the correct format.
+    """
     for row in raw_data:
         link = Validator(row[1])
         if not link.is_link():

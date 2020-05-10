@@ -1,5 +1,5 @@
 """
-Unit test for input prep.
+Unit test for input prep
 """
 import unittest
 from app.input_prep import validate_data, articles, pages
@@ -10,11 +10,17 @@ class TestReadCsv(unittest.TestCase):
     """
 
     def test_validate_data_empty(self):
+        """
+        Test on empty imput should return empty output.
+        """
         output = validate_data([])
         self.assertEqual(output, [], 'The output is not empty list')
 
     def test_validate_incorrect_link(self):
-        input = [
+        """
+        Test that link validator raises error when wrong data.
+        """
+        raw_data = [
             [
                 'This is a title',
                 'seznam.cz',
@@ -24,11 +30,14 @@ class TestReadCsv(unittest.TestCase):
             ]
         ]
         with self.assertRaises(TypeError) as error:
-            validate_data(input)
+            validate_data(raw_data)
         self.assertEqual(str(error.exception), "seznam.cz is not a link")
 
     def test_validate_incorrect_date(self):
-        input = [
+        """
+        Test that date validator raises error when wrong data.
+        """
+        raw_data = [
             [
                 'This is a title',
                 'https://www.seznam.cz',
@@ -38,11 +47,14 @@ class TestReadCsv(unittest.TestCase):
             ]
         ]
         with self.assertRaises(TypeError) as error:
-            validate_data(input)
+            validate_data(raw_data)
         self.assertEqual(str(error.exception), "December 2020 is not a date")
 
     def test_validate_correct_data(self):
-        input = [
+        """
+        Test that date validator lets correct data pass.
+        """
+        raw_data = [
             [
                 'This is a title',
                 'https://www.seznam.cz',
@@ -51,8 +63,8 @@ class TestReadCsv(unittest.TestCase):
                 '20.02.2020',
             ]
         ]
-        output = validate_data(input)
-        self.assertIs(input, output)
+        output = validate_data(raw_data)
+        self.assertIs(raw_data, output)
 
     def test_articles_empty(self):
         """

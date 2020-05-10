@@ -30,7 +30,7 @@ class TestValidator(unittest.TestCase):
         self.assertFalse(not_date_validator.is_date(), 'This shoud not be a date.')
 
         not_date_validator = Validator("December 2020")
-        self.assertFalse(not_date_validator.is_date(),'Date should be in correct format.')
+        self.assertFalse(not_date_validator.is_date(), 'Date should be in correct format.')
 
         date_validator = Validator("12.12.2012")
         self.assertTrue(date_validator.is_date(), 'This is not a date')
