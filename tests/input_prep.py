@@ -2,12 +2,57 @@
 Unit test for input prep.
 """
 import unittest
-from app.input_prep import articles, pages
+from app.input_prep import validate_data, articles, pages
 
 class TestReadCsv(unittest.TestCase):
     """
     Test data transformation formatting.
     """
+
+    def test_validate_data_empty(self):
+        output = validate_data([])
+        self.assertEqual(output, [], 'The output is not empty list')
+
+    def test_validate_incorrect_link(self):
+        input = [
+            [
+                'This is a title',
+                'seznam.cz',
+                'Senam.cz 2020',
+                'summary of article',
+                'December 2020',
+            ]
+        ]
+        with self.assertRaises(TypeError) as error:
+            validate_data(input)
+        self.assertEqual(str(error.exception), "seznam.cz is not a link")
+
+    def test_validate_incorrect_date(self):
+        input = [
+            [
+                'This is a title',
+                'https://www.seznam.cz',
+                'Senam.cz 2020',
+                'summary of article',
+                'December 2020',
+            ]
+        ]
+        with self.assertRaises(TypeError) as error:
+            validate_data(input)
+        self.assertEqual(str(error.exception), "December 2020 is not a date")
+
+    def test_validate_correct_data(self):
+        input = [
+            [
+                'This is a title',
+                'https://www.seznam.cz',
+                'Senam.cz 2020',
+                'summary of article',
+                '20.02.2020',
+            ]
+        ]
+        output = validate_data(input)
+        self.assertIs(input, output)
 
     def test_articles_empty(self):
         """
