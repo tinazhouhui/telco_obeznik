@@ -1,3 +1,5 @@
+import re
+
 class Validator:
     """
     Validates the input data from the csvfile.
@@ -9,26 +11,19 @@ class Validator:
         """
         validates that input is an email.
         """
-        self.value
-        return False
+        return bool(re.match("^\S+@\S+$", self.value))
 
     def is_date(self):
         """
         validates that input is a date.
         """
-        self.value
-        return True
+        return bool(re.match("^([0-9]{1,2}\.){2}([0-9]){4}$", self.value))
 
     def is_link(self):
         """
         validates that input is a link.
         """
-        self.value
-        return True
-
-    def is_text(self):
-        """
-        validates that input is a text.
-        """
-        self.value
-        return True
+        protocol = "https?:\/\/"
+        website = "(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}"
+        subdomain = "([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+        return bool(re.match(protocol+website+subdomain, self.value))
