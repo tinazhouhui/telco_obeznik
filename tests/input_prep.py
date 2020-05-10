@@ -10,16 +10,16 @@ class TestReadCsv(unittest.TestCase):
     """
 
     def test_articles_empty(self):
-    """
-    Test on empty imput should return empty output.
-    """
+        """
+        Test on empty imput should return empty output.
+        """
         output = articles([])
         self.assertEqual(output, [], 'The output is not empty list')
 
     def test_articles_columns(self):
-    """
-    Test the correct formatting of date and connection to correct key.
-    """
+        """
+        Test the correct formatting of date and connection to correct key.
+        """
         article_input = [['col1', 'col2', 'col3', 'col4', '24.12.2020', 'col6']]
         output = articles(input)
         self.assertEqual(output[0]['title'], "col1")
@@ -30,16 +30,16 @@ class TestReadCsv(unittest.TestCase):
         self.assertEqual(len(output[0]), 5)
 
     def test_pages_empty(self):
-    """
-    Test on empty imput should return empty output.
-    """
+        """
+        Test on empty imput should return empty output.
+        """
         output = pages({})
         self.assertEqual(output, {}, 'The output is not empty dictionary')
 
     def test_pages_keys(self):
-    """
-    Test that articles with same keys are appended together.
-    """
+        """
+        Test that articles with same keys are appended together.
+        """
         pages_input = [
             {
             'title':'col1',
