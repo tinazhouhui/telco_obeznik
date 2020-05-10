@@ -20,7 +20,6 @@ class TestValidator(unittest.TestCase):
         self.assertFalse(not_email_validator.is_email(), 'Email should not contain whitespace.')
 
         email_validator = Validator("asdf@gmail.com")
-        print(email_validator.is_email())
         self.assertTrue(email_validator.is_email(), 'This is not an email.')
 
     def test_is_date(self):
