@@ -32,5 +32,5 @@ class Validator:
         """
         protocol = r"https?:\/\/"
         website = r"(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}"
-        subdomain = r"([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+        path = r"([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
         return bool(re.match(protocol+website+subdomain, self.value))
