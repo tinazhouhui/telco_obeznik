@@ -1,31 +1,36 @@
+"""
+Created class to validate the format of raw data from csv file.
+"""
+
+import re
+
 class Validator:
     """
     Validates the input data from the csvfile.
     """
-    def email(self):
+    def __init__(self, value):
+        """
+        assing value
+        """
+        self.value = value
+
+    def is_email(self):
         """
         validates that input is an email.
         """
-        self.isemail()
-        return True
+        return bool(re.match(r"^\S+@\S+$", self.value))
 
-    def date(self):
+    def is_date(self):
         """
         validates that input is a date.
         """
-        self.isdate()
-        return True
+        return bool(re.match(r"^([0-9]{1,2}\.){2}([0-9]){4}$", self.value))
 
-    def link(self):
+    def is_link(self):
         """
         validates that input is a link.
         """
-        self.islink()
-        return True
-
-    def text(self):
-        """
-        validates that input is a text.
-        """
-        self.istext()
-        return True
+        protocol = r"https?:\/\/"
+        website = r"(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}"
+        path = r"([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+        return bool(re.match(protocol+website+path, self.value))

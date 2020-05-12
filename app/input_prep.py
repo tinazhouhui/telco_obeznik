@@ -3,6 +3,7 @@ Read and transform data.
 """
 import csv
 from datetime import datetime
+from app.validator import Validator
 
 def read_csv(path):
     """
@@ -20,6 +21,22 @@ def read_csv(path):
             output.append(row) #transform data into list
 
     return output
+
+def validate_data(raw_data):
+    """
+    Validates that raw input data are in the correct format.
+    """
+    for row in raw_data:
+        link = Validator(row[1])
+        if not link.is_link():
+            raise TypeError(row[1] + ' is not a link')
+
+        date = Validator(row[4])
+        if not date.is_date():
+            raise TypeError(row[4] + ' is not a date')
+
+    return raw_data
+
 
 def articles(input_data):
     """
