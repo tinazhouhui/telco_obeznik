@@ -14,11 +14,15 @@ OUTPUT = './inputs/data_dec19.csv'
 for function in PIPELINE:
     OUTPUT = function(OUTPUT)
 
+#render pages
+#create a sablona - test it
+#output is dictionary where key is name of the file and variable is what should go to write.
+
 def create_pages(input):
     for page in input:
         filename = page.lower().replace(" 20", "")+".html"
         print(filename)
-        generated_file = open(r"C:\Users\tzhouhui\Documents\Telko Oběžník\Pages\{}".format(filename),"w+")
+        generated_file = open(r".\www\{}".format(filename),"w+")
         for article in input[page]:
             generated_file.write(article['title']+"<br>\n")
         generated_file.close()
