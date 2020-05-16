@@ -2,11 +2,11 @@
 Rendering of articles to html code.
 """
 
+
 class ArticleListRender:
     """
     Class to render articles.
     """
-
 
     def __init__(self, article_list):
         self.article_list = article_list

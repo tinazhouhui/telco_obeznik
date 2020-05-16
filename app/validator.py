@@ -4,11 +4,11 @@ Created class to validate the format of raw data from csv file.
 
 import re
 
+
 class Validator:
     """
     Validates the input data from the csvfile.
     """
-
 
     def __init__(self, value):
         """
