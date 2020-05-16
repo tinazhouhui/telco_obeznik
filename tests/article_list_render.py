@@ -4,6 +4,7 @@ Unit test for render that checks the correct rendering.
 import unittest
 from app.article_list_render import ArticleListRender
 
+
 class TestArticleListRender(unittest.TestCase):
     """
     Unit test for article rendering to html code.

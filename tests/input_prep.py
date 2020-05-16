@@ -4,11 +4,11 @@ Unit test for input prep
 import unittest
 from app.input_prep import validate_data, articles, pages
 
+
 class TestReadCsv(unittest.TestCase):
     """
     Test data transformation formatting.
     """
-
 
     def test_validate_data_empty(self):
         """

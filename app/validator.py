@@ -9,6 +9,7 @@ class Validator:
     Validates the input data from the csvfile.
     """
 
+
     def __init__(self, value):
         """
         assing value

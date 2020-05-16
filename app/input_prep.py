@@ -5,6 +5,7 @@ import csv
 from datetime import datetime
 from app.validator import Validator
 
+
 def read_csv(path):
     """
     read the input csv
@@ -22,6 +23,7 @@ def read_csv(path):
             output.append(row)  # transform data into list
 
     return output
+
 
 def validate_data(raw_data):
     """
@@ -60,6 +62,7 @@ def articles(input_data):
         articles_details.append(article_details)
 
     return articles_details
+
 
 def pages(input_articles):
     """
