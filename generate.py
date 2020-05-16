@@ -21,17 +21,19 @@ for function in PIPELINE:
 # create a sablona - test it
 # output is dictionary where key is name of the file and variable is what should go to write.
 
+
 def create_pages(article_groups):
     """
     Create article pages with correct html formatting.
     """
 
     for page_name in article_groups:
-        articles = article_groups[page_name]
+        articles_in_group = article_groups[page_name]
         filename = page_name.lower().replace(" 20", "") + ".html"
-        generated_file = open(r".\www\{}".format(filename),"w+")
-        article_list = ArticleListRender(articles)
+        generated_file = open(r".\www\{}".format(filename), "w+")
+        article_list = ArticleListRender(articles_in_group)
         generated_file.write(article_list.to_html())
         generated_file.close()
+
 
 create_pages(OUTPUT)
