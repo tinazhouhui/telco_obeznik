@@ -4,7 +4,9 @@ Unit test for validator that checks input data.
 import unittest
 from app.validator import Validator
 
+
 class TestValidator(unittest.TestCase):
+
     """
     Unit test for validator that checks input data.
     """

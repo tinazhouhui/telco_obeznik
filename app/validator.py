@@ -4,10 +4,12 @@ Created class to validate the format of raw data from csv file.
 
 import re
 
+
 class Validator:
     """
     Validates the input data from the csvfile.
     """
+
     def __init__(self, value):
         """
         assing value
@@ -33,4 +35,4 @@ class Validator:
         protocol = r"https?:\/\/"
         website = r"(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}"
         path = r"([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
-        return bool(re.match(protocol+website+path, self.value))
+        return bool(re.match(protocol + website + path, self.value))

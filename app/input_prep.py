@@ -5,27 +5,31 @@ import csv
 from datetime import datetime
 from app.validator import Validator
 
+
 def read_csv(path):
     """
     read the input csv
     :type path: path to the csvfile
     :rtype csv.reader object
     """
+
     output = []
 
     with open(path, newline='') as csvfile:
         input_data = csv.reader(csvfile, delimiter=";")
-        next(input_data) #skips header row
+        next(input_data)  # skips header row
 
         for row in input_data:
-            output.append(row) #transform data into list
+            output.append(row)  # transform data into list
 
     return output
+
 
 def validate_data(raw_data):
     """
     Validates that raw input data are in the correct format.
     """
+
     for row in raw_data:
         link = Validator(row[1])
         if not link.is_link():
@@ -44,6 +48,7 @@ def articles(input_data):
     :type input_data: list
     :rtype list
     """
+
     articles_details = []
 
     for row in input_data:
@@ -58,12 +63,14 @@ def articles(input_data):
 
     return articles_details
 
+
 def pages(input_articles):
     """
     create a dictionary with months and years as key with all corresponding articles.
     :type articles: dictionary of articles defined by read_csv_create_dict function
     :rtype dictionary
     """
+
     pages_per_months = {}
     for article in input_articles:
         date = article['date']

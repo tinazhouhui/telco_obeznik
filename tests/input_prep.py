@@ -4,6 +4,7 @@ Unit test for input prep
 import unittest
 from app.input_prep import validate_data, articles, pages
 
+
 class TestReadCsv(unittest.TestCase):
     """
     Test data transformation formatting.
@@ -112,7 +113,7 @@ class TestReadCsv(unittest.TestCase):
                 'summary':'col44',
                 'date':'December 2020',
             },
-            ]
+        ]
         output = pages(pages_input)
         self.assertEqual(len(output), 1)
         self.assertEqual(list(output.keys())[0], 'December 2020')
