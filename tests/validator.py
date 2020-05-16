@@ -9,6 +9,7 @@ class TestValidator(unittest.TestCase):
     Unit test for validator that checks input data.
     """
 
+
     def test_is_email(self):
         """
         Unit test for email validator that checks if input is in the form of email.

@@ -9,6 +9,7 @@ class TestReadCsv(unittest.TestCase):
     Test data transformation formatting.
     """
 
+
     def test_validate_data_empty(self):
         """
         Test on empty imput should return empty output.
@@ -112,7 +113,7 @@ class TestReadCsv(unittest.TestCase):
                 'summary':'col44',
                 'date':'December 2020',
             },
-            ]
+        ]
         output = pages(pages_input)
         self.assertEqual(len(output), 1)
         self.assertEqual(list(output.keys())[0], 'December 2020')
