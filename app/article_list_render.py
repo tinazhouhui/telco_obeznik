@@ -1,7 +1,8 @@
 """
 Rendering of articles to html code.
 """
-
+from jinja2 import FileSystemLoader, Environment
+import os
 
 class ArticleListRender:
     """
@@ -10,24 +11,14 @@ class ArticleListRender:
 
     def __init__(self, article_list):
         self.article_list = article_list
+        template_path = os.path.dirname(__file__)+'/templates'
+        template_loader = FileSystemLoader(searchpath=template_path)
+        self.template_env = Environment(loader=template_loader)
 
     def to_html(self):
         """
         renders each article to an html string and creates one continuous string.
         """
-        article_list_html = ''
-        for article in self.article_list:
 
-            title = article['title']
-            link = article['link']
-            rendered_title = '<h3><a href="{1}">{0}</a></h3>'.format(title, link)
-
-            source = article['source']
-            rendered_source = '<h5>{}</h5>'.format(source)
-
-            summary = article['summary']
-            rendered_body = '<p>{}</p>'.format(summary)
-
-            article_list_html += rendered_title + rendered_source + rendered_body
-
-        return article_list_html
+        template = self.template_env.get_template("article_list.j2")
+        return template.render(article_list = self.article_list)
