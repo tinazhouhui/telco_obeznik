@@ -26,5 +26,4 @@ python3 -m unittest tests/*
 run command to see the % of code covered by tests:
 '''bash
  coverage run --omit=tests/* -m pytest tests/* && coverage report -m
- '''
- 
+'''
