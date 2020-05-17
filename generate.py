@@ -1,6 +1,8 @@
 """
 Generator of all functions.
 """
+
+from collections import defaultdict
 from app.input_prep import validate_data, read_csv, articles, pages
 from app.article_list_render import ArticleListRender
 
@@ -10,10 +12,19 @@ from app.article_list_render import ArticleListRender
 # print(pages(ARTICLES))
 
 PIPELINE = [read_csv, validate_data, articles, pages]
-OUTPUT = './inputs/data_dec19.csv'
+OUTPUT_CZECH = './inputs/data_dec19.csv'
+OUTPUT_WORLD = './inputs/data_world.csv'
+# OUTPUT_WORLD =
 
 for function in PIPELINE:
-    OUTPUT = function(OUTPUT)
+    OUTPUT_CZECH = function(OUTPUT_CZECH)
+    OUTPUT_WORLD = function(OUTPUT_WORLD)
+
+OUTPUT = defaultdict(list)
+
+for page in (OUTPUT_CZECH, OUTPUT_WORLD):
+    for key, value in page.items():
+        OUTPUT[key].append(value)
 
 # print(OUTPUT)
 
