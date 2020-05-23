@@ -3,7 +3,7 @@ Generator of all functions.
 """
 
 import pprint
-from app.input_prep import validate_data, read_csv, articles, pages
+from app.input_prep import validate_data, read_csv, articles, pages, combine_world_czech_articles
 from app.article_list_render import ArticleListRender
 
 # CSV_FILE = read_csv('./inputs/data_dec19.csv')
@@ -19,25 +19,10 @@ for function in PIPELINE:
     OUTPUT_CZECH = function(OUTPUT_CZECH)
     OUTPUT_WORLD = function(OUTPUT_WORLD)
 
-OUTPUT = {}
 
-for page_world in OUTPUT_WORLD:
-    OUTPUT[page_world] = {
-        'world': OUTPUT_WORLD[page_world],
-        'czech': [],
-    }
-
-for page_czech in OUTPUT_CZECH:
-    if page_czech not in OUTPUT:
-        OUTPUT[page_czech] = {
-            'world': [],
-            'czech': [],
-        }
-
-    OUTPUT[page_czech]['czech'] = OUTPUT_CZECH[page_czech]
-
+OUTPUT = combine_world_czech_articles(OUTPUT_WORLD, OUTPUT_CZECH)
 # printer = pprint.PrettyPrinter(indent=4)
-# printer.pprint(OUTPUT)
+# printer.pprint(combine_world_czech_articles(OUTPUT_WORLD, OUTPUT_CZECH))
 
 # render pages
 # create a sablona - test it
