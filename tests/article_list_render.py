@@ -14,8 +14,8 @@ class TestArticleListRender(unittest.TestCase):
         """
         Test that all inputs are somewhere in the html code.
         """
-        article_list = {'world':
-            [
+        article_list = {
+            'world': [
                 {
                     'title': 'Why am I awesome',
                     'link': 'https://www.tinaisawesome.io',
@@ -24,8 +24,7 @@ class TestArticleListRender(unittest.TestCase):
                     'date': 'January 2020',
                 },
             ],
-        'czech':
-            [
+            'czech': [
                 {
                     'title': 'Why',
                     'link': 'https://www.tinaisawesome.cz',

@@ -2,7 +2,7 @@
 Generator of all functions.
 """
 
-import pprint
+# import pprint
 from app.input_prep import validate_data, read_csv, articles, pages, combine_world_czech_articles
 from app.article_list_render import ArticleListRender
 
@@ -24,10 +24,6 @@ OUTPUT = combine_world_czech_articles(OUTPUT_WORLD, OUTPUT_CZECH)
 # printer = pprint.PrettyPrinter(indent=4)
 # printer.pprint(combine_world_czech_articles(OUTPUT_WORLD, OUTPUT_CZECH))
 
-# render pages
-# create a sablona - test it
-# output is dictionary where key is name of the file and variable is what should go to write.
-
 
 def create_pages(article_groups):
     """
@@ -41,5 +37,6 @@ def create_pages(article_groups):
         article_list = ArticleListRender(articles_in_group)
         generated_file.write(article_list.to_html())
         generated_file.close()
+
 
 create_pages(OUTPUT)

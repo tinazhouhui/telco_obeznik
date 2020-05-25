@@ -156,15 +156,16 @@ class TestReadCsv(unittest.TestCase):
         }
 
         output = combine_world_czech_articles(input_world, input_czech)
-        self.assertEqual(len(output['December 2020']), 2, 'The combination does not contain two items')
+        december = output['December 2020']
+        self.assertEqual(len(december), 2, 'The combination does not contain two items')
 
-        self.assertEqual(len(output['December 2020']['czech']), 1, 'There are more articles in czech')
-        self.assertEqual(len(output['December 2020']['czech'][0]), 5, 'There are more article details in czech')
-        self.assertEqual(output['December 2020']['czech'][0]['link'], 'col2', 'the string is not correct in czech')
+        self.assertEqual(len(december['czech']), 1, 'There are more articles in czech')
+        self.assertEqual(len(december['czech'][0]), 5, 'There are more article details in czech')
+        self.assertEqual(december['czech'][0]['link'], 'col2', 'the string is not correct in czech')
 
-        self.assertEqual(len(output['December 2020']['world']), 1, 'There are more articles in world')
-        self.assertEqual(len(output['December 2020']['world'][0]), 5, 'There are more article details in world')
-        self.assertEqual(output['December 2020']['world'][0]['source'], 'col33', 'the string is not correct in world')
+        self.assertEqual(len(december['world']), 1, 'There are more articles in world')
+        self.assertEqual(len(december['world'][0]), 5, 'There are more article details in world')
+        self.assertEqual(december['world'][0]['source'], 'col33', 'the string is not correct')
 
     def test_combine_articles_diff_key(self):
         """
@@ -196,7 +197,5 @@ class TestReadCsv(unittest.TestCase):
         }
 
         output = combine_world_czech_articles(input_world, input_czech)
-      
-        self.assertEqual(output['December 2020']['world'], [], 'There are more articles in czech')
-        self.assertEqual(output['November 2020']['czech'], [], 'There are more article details in czech')
-
+        self.assertEqual(output['December 2020']['world'], [], 'the world is not empty')
+        self.assertEqual(output['November 2020']['czech'], [], 'the czech is not empty')

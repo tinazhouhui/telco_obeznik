@@ -12,7 +12,7 @@ class ArticleListRender:
 
     def __init__(self, article_list):
         self.article_list = article_list
-        template_path = os.path.dirname(__file__)+'/templates'
+        template_path = os.path.dirname(__file__) + '/templates'
         template_loader = FileSystemLoader(searchpath=template_path)
         self.template_env = Environment(loader=template_loader, autoescape=True)
 
