@@ -81,12 +81,10 @@ def pages(input_articles):
 
     return pages_per_months
 
-
 def combine_world_czech_articles(world, czech):
     """
     combine the world articles and czech articles to create one dictionary.
-    :type world: dict
-    :type czech: dict
+    :type world: list of dictionaries
     :rtype {page name {world or czech dict [list of articles]}}
     """
     combined_articles = {}
