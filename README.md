@@ -27,4 +27,3 @@ run command to see the % of code covered by tests:
 ```bash
 coverage run --omit=tests/*,/home/*,/usr/* -m pytest tests/* && coverage report -m
 ```
- 

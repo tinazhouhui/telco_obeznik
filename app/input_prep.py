@@ -10,7 +10,7 @@ def read_csv(path):
     """
     read the input csv
     :type path: path to the csvfile
-    :rtype csv.reader object
+    :rtype list
     """
 
     output = []
@@ -28,6 +28,8 @@ def read_csv(path):
 def validate_data(raw_data):
     """
     Validates that raw input data are in the correct format.
+    :type raw_data: list
+    :rtype list
     """
 
     for row in raw_data:
@@ -46,7 +48,7 @@ def articles(input_data):
     """
     create a dictionary from list of articles.
     :type input_data: list
-    :rtype list
+    :rtype list of dictionaries. each dictionary represents one article.
     """
 
     articles_details = []
@@ -67,8 +69,8 @@ def articles(input_data):
 def pages(input_articles):
     """
     create a dictionary with months and years as key with all corresponding articles.
-    :type articles: dictionary of articles defined by read_csv_create_dict function
-    :rtype dictionary
+    :type articles: list of dictionary of articles
+    :rtype dictionary (page) of list of dictionaries (articles)
     """
 
     pages_per_months = {}
