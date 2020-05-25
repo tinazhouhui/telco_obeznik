@@ -1,7 +1,9 @@
 """
 Generator of all functions.
 """
-from app.input_prep import validate_data, read_csv, articles, pages
+
+import pprint
+from app.input_prep import validate_data, read_csv, articles, pages, combine_world_czech_articles
 from app.article_list_render import ArticleListRender
 
 # CSV_FILE = read_csv('./inputs/data_dec19.csv')
@@ -10,12 +12,17 @@ from app.article_list_render import ArticleListRender
 # print(pages(ARTICLES))
 
 PIPELINE = [read_csv, validate_data, articles, pages]
-OUTPUT = './inputs/data_dec19.csv'
+OUTPUT_CZECH = './inputs/data_dec19.csv'
+OUTPUT_WORLD = './inputs/data_world.csv'
 
 for function in PIPELINE:
-    OUTPUT = function(OUTPUT)
+    OUTPUT_CZECH = function(OUTPUT_CZECH)
+    OUTPUT_WORLD = function(OUTPUT_WORLD)
 
-# print(OUTPUT)
+
+OUTPUT = combine_world_czech_articles(OUTPUT_WORLD, OUTPUT_CZECH)
+# printer = pprint.PrettyPrinter(indent=4)
+# printer.pprint(combine_world_czech_articles(OUTPUT_WORLD, OUTPUT_CZECH))
 
 # render pages
 # create a sablona - test it
@@ -34,6 +41,5 @@ def create_pages(article_groups):
         article_list = ArticleListRender(articles_in_group)
         generated_file.write(article_list.to_html())
         generated_file.close()
-
 
 create_pages(OUTPUT)

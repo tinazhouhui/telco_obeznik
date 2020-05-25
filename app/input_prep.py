@@ -82,3 +82,29 @@ def pages(input_articles):
             pages_per_months[date].append(article)
 
     return pages_per_months
+
+
+def combine_world_czech_articles(world, czech):
+    """
+    combine the world articles and czech articles to create one dictionary.
+    :type world: dict
+    :type czech: dict
+    :rtype {page name {world or czech dict [list of articles]}}
+    """
+    combined_articles = {}
+
+    for page_world in world:
+        combined_articles[page_world] = {
+            'world': world[page_world],
+            'czech': [],
+        }
+
+    for page_czech in czech:
+        if page_czech not in combined_articles:
+            combined_articles[page_czech] = {
+                'world': [],
+                'czech': [],
+            }
+        combined_articles[page_czech]['czech'] = czech[page_czech]
+
+    return combined_articles

@@ -3,3 +3,5 @@ nosetests.json
 __pycache__
 .coverage
 www
+.idea
+

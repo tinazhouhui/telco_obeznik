@@ -21,5 +21,6 @@ class ArticleListRender:
         renders each article to an html string and creates one continuous string.
         """
 
-        template = self.template_env.get_template("article_list.j2")
+        template = self.template_env.get_template("layout.html.j2")
+
         return template.render(article_list=self.article_list)
