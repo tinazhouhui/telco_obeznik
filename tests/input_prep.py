@@ -2,7 +2,7 @@
 Unit test for input prep
 """
 import unittest
-from app.input_prep import validate_data, articles, pages
+from app.input_prep import validate_data, articles, pages, combine_world_czech_articles
 
 
 class TestReadCsv(unittest.TestCase):
@@ -100,20 +100,103 @@ class TestReadCsv(unittest.TestCase):
         """
         pages_input = [
             {
-                'title':'col1',
-                'link':'col2',
-                'source':'col3',
-                'summary':'col4',
-                'date':'December 2020',
+                'title': 'col1',
+                'link': 'col2',
+                'source': 'col3',
+                'summary': 'col4',
+                'date': 'December 2020',
             },
             {
-                'title':'col11',
-                'link':'col22',
-                'source':'col33',
-                'summary':'col44',
-                'date':'December 2020',
+                'title': 'col11',
+                'link': 'col22',
+                'source': 'col33',
+                'summary': 'col44',
+                'date': 'December 2020',
             },
         ]
         output = pages(pages_input)
         self.assertEqual(len(output), 1)
         self.assertEqual(list(output.keys())[0], 'December 2020')
+
+    def test_combine_articles_empty(self):
+        """
+        Test that the function returns empty dict.
+        """
+
+        output = combine_world_czech_articles({}, {})
+        self.assertEqual(output, {}, 'It did not combine to an empty dict')
+
+    def test_combine_articles_same_key(self):
+        """
+        Test that both world and czech articles are combined in one dictionary when same key.
+        """
+        input_czech = {
+            'December 2020': [
+                {
+                    'title': 'col1',
+                    'link': 'col2',
+                    'source': 'col3',
+                    'summary': 'col4',
+                    'date': 'December 2020',
+                },
+
+            ]
+        }
+        input_world = {
+            'December 2020': [
+                {
+                    'title': 'col11',
+                    'link': 'col22',
+                    'source': 'col33',
+                    'summary': 'col44',
+                    'date': 'December 2020',
+                },
+
+            ]
+        }
+
+        output = combine_world_czech_articles(input_world, input_czech)
+        self.assertEqual(len(output['December 2020']), 2, 'The combination does not contain two items')
+
+        self.assertEqual(len(output['December 2020']['czech']), 1, 'There are more articles in czech')
+        self.assertEqual(len(output['December 2020']['czech'][0]), 5, 'There are more article details in czech')
+        self.assertEqual(output['December 2020']['czech'][0]['link'], 'col2', 'the string is not correct in czech')
+
+        self.assertEqual(len(output['December 2020']['world']), 1, 'There are more articles in world')
+        self.assertEqual(len(output['December 2020']['world'][0]), 5, 'There are more article details in world')
+        self.assertEqual(output['December 2020']['world'][0]['source'], 'col33', 'the string is not correct in world')
+
+    def test_combine_articles_diff_key(self):
+        """
+        Test that both world and czech articles are combined in one dictionary when diff key.
+        """
+        input_czech = {
+            'December 2020': [
+                {
+                    'title': 'col1',
+                    'link': 'col2',
+                    'source': 'col3',
+                    'summary': 'col4',
+                    'date': 'December 2020',
+                },
+
+            ]
+        }
+        input_world = {
+            'November 2020': [
+                {
+                    'title': 'col11',
+                    'link': 'col22',
+                    'source': 'col33',
+                    'summary': 'col44',
+                    'date': 'November 2020',
+                },
+
+            ]
+        }
+
+        output = combine_world_czech_articles(input_world, input_czech)
+      
+        self.assertEqual(output['December 2020']['world'], [], 'There are more articles in czech')
+        self.assertEqual(output['November 2020']['czech'], [], 'There are more article details in czech')
+
