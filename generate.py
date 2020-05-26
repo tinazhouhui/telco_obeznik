@@ -32,9 +32,10 @@ def create_pages(article_groups):
 
     for page_name in article_groups:
         articles_in_group = article_groups[page_name]
+        title = page_name[:-5]
         filename = page_name.lower().replace(" 20", "") + ".html"
         generated_file = open(r".\www\{}".format(filename), "w+")
-        article_list = ArticlesController(articles_in_group)
+        article_list = ArticlesController(articles_in_group, title)
         generated_file.write(article_list.to_html())
         generated_file.close()
 

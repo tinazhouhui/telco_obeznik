@@ -10,8 +10,9 @@ class ArticlesController:
     Class to render articles.
     """
 
-    def __init__(self, article_list):
+    def __init__(self, article_list, title: str):
         self.article_list = article_list
+        self.title = title
         template_path = os.path.dirname(__file__) + '/templates'
         template_loader = FileSystemLoader(searchpath=template_path)
         self.template_env = Environment(loader=template_loader, autoescape=True)
@@ -23,4 +24,7 @@ class ArticlesController:
 
         template = self.template_env.get_template("articles_body.html.j2")
 
-        return template.render(article_list=self.article_list)
+        return template.render(
+            article_list=self.article_list,
+            title=self.title,
+        )
