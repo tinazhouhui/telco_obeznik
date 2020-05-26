@@ -5,7 +5,7 @@ import os
 from jinja2 import FileSystemLoader, Environment
 
 
-class ArticleListRender:
+class ArticlesController:
     """
     Class to render articles.
     """
@@ -21,6 +21,6 @@ class ArticleListRender:
         renders each article to an html string and creates one continuous string.
         """
 
-        template = self.template_env.get_template("layout.html.j2")
+        template = self.template_env.get_template("articles_body.html.j2")
 
         return template.render(article_list=self.article_list)

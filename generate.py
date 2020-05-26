@@ -4,7 +4,7 @@ Generator of all functions.
 
 # import pprint
 from app.input_prep import validate_data, read_csv, articles, pages, combine_world_czech_articles
-from app.article_list_render import ArticleListRender
+from app.articles_controller import ArticlesController
 
 # CSV_FILE = read_csv('./inputs/data_dec19.csv')
 # VALIDATED_DATA = validate_data(CSV_FILE)
@@ -34,7 +34,7 @@ def create_pages(article_groups):
         articles_in_group = article_groups[page_name]
         filename = page_name.lower().replace(" 20", "") + ".html"
         generated_file = open(r".\www\{}".format(filename), "w+")
-        article_list = ArticleListRender(articles_in_group)
+        article_list = ArticlesController(articles_in_group)
         generated_file.write(article_list.to_html())
         generated_file.close()
 
