@@ -1,0 +1,26 @@
+{% extends "layout.html.j2" %}
+{% block content %}
+    <div class="text-justify">
+        <div class="row">
+            <h1 class="col">test month</h1>
+        </div>
+
+        <h2>
+            <i class="fas fa-beer pr-3"></i>
+            Česká republika
+        </h2>
+
+        {% with articles = article_list.czech %}
+            {% include 'article_list.html.j2' %}
+        {% endwith %}
+
+        <h2>
+            <i class="fas fa-globe-europe pr-3"></i>
+            World
+        </h2>
+
+        {% with articles = article_list.world %}
+            {% include 'article_list.html.j2' %}
+        {% endwith %}
+    </div>
+{% endblock %}

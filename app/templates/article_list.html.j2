@@ -1,8 +1,9 @@
 {% for article in articles %}
-  <h3>
+<div class="text">
+    <h3>
       <a href="{{ article.link }}">{{ article.title }}</a>
-  </h3>
-  <h5>{{ article.source }}</h5>
-  <p>{{ article.summary }}</p>
-
+    </h3>
+    <h5>{{ article.source }}</h5>
+    <p>{{ article.summary }}</p>
+</div>
 {% endfor %}
