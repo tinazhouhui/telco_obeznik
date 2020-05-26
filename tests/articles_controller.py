@@ -34,8 +34,8 @@ class TestArticleListRender(unittest.TestCase):
                 },
             ],
         }
-
-        articles = ArticlesController(article_list)
+        title = 'Month 2020'
+        articles = ArticlesController(article_list, title)
         self.assertIn(article_list['world'][0]['title'], articles.to_html())
         self.assertIn(article_list['world'][0]['link'], articles.to_html())
         self.assertIn(article_list['world'][0]['source'], articles.to_html())
@@ -44,3 +44,5 @@ class TestArticleListRender(unittest.TestCase):
         self.assertIn(article_list['czech'][0]['link'], articles.to_html())
         self.assertIn(article_list['czech'][0]['source'], articles.to_html())
         self.assertIn(article_list['czech'][0]['summary'], articles.to_html())
+
+        self.assertIn(title, articles.to_html())
