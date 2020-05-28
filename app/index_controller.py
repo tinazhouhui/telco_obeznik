@@ -12,10 +12,7 @@ def year_month_parsing(year_month: str) -> str:
     """
     parsed_date = datetime.strptime(year_month, "%Y-%m").strftime("%B %Y")
 
-
     return parsed_date
-
-# should be a class? or separate function? also write tests
 
 
 def page_title(year_month: str) -> str:
@@ -28,7 +25,7 @@ def page_title(year_month: str) -> str:
     return title
 
 
-def filename(year_month: str) -> str:
+def file_name(year_month: str) -> str:
     """
     Format year month string to filename format.
     """
