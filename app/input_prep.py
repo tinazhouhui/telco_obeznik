@@ -59,7 +59,7 @@ def articles(input_data):
             'link': row[1],
             'source': row[2],
             'summary': row[3],
-            'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
+            'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%Y-%m")
         }
         articles_details.append(article_details)
 
