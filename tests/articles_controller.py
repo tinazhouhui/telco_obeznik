@@ -2,7 +2,7 @@
 Unit test for render that checks the correct rendering.
 """
 import unittest
-from app.controllers.articles_controller import ArticlesController
+from app.controllers.articles import ArticlesController
 
 
 class TestArticleListRender(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestArticleListRender(unittest.TestCase):
             ],
         }
         title = 'Month 2020'
-        articles = ArticlesController(article_list, title)
+        articles = ArticlesController(title, article_list)
         self.assertIn(article_list['world'][0]['title'], articles.to_html())
         self.assertIn(article_list['world'][0]['link'], articles.to_html())
         self.assertIn(article_list['world'][0]['source'], articles.to_html())
