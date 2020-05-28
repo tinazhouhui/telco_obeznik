@@ -13,7 +13,7 @@ class ArticlesController:
     def __init__(self, article_list, title: str):
         self.article_list = article_list
         self.title = title
-        template_path = os.path.dirname(__file__) + '/templates'
+        template_path = os.path.dirname(__file__) + '/../views'
         template_loader = FileSystemLoader(searchpath=template_path)
         self.template_env = Environment(loader=template_loader, autoescape=True)
 

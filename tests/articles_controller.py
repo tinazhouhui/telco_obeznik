@@ -2,7 +2,7 @@
 Unit test for render that checks the correct rendering.
 """
 import unittest
-from app.articles_controller import ArticlesController
+from app.controllers.articles_controller import ArticlesController
 
 
 class TestArticleListRender(unittest.TestCase):

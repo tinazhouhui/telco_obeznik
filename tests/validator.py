@@ -2,7 +2,7 @@
 Unit test for validator that checks input data.
 """
 import unittest
-from app.validator import Validator
+from app.models.validator import Validator
 
 
 class TestValidator(unittest.TestCase):

@@ -3,9 +3,9 @@ Generator of all functions.
 """
 
 # import pprint
-from app.input_prep import validate_data, read_csv, articles, pages, combine_world_czech_articles
-from app.articles_controller import ArticlesController
-from app.index_controller import page_title, file_name
+from app.models.input_prep import validate_data, read_csv, articles, pages, combine_world_czech_articles
+from app.controllers.articles_controller import ArticlesController
+from app.models.date_parsing import page_title, file_name
 
 
 PIPELINE = [read_csv, validate_data, articles, pages]

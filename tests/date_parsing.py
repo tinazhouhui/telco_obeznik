@@ -3,7 +3,7 @@ Unit test for index controller.
 """
 
 import unittest
-from app.index_controller import year_month_parsing, page_title, file_name
+from app.models.date_parsing import year_month_parsing, page_title, file_name
 
 
 class TestReadCsv(unittest.TestCase):

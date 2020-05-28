@@ -3,14 +3,12 @@ Read and transform data.
 """
 import csv
 from datetime import datetime
-from app.validator import Validator
+from app.models.validator import Validator
 
 
-def read_csv(path):
+def read_csv(path: str) -> []:
     """
     read the input csv
-    :type path: path to the csvfile
-    :rtype list
     """
 
     output = []

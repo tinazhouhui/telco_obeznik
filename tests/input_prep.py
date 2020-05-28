@@ -2,7 +2,7 @@
 Unit test for input prep
 """
 import unittest
-from app.input_prep import validate_data, articles, pages, combine_world_czech_articles
+from app.models.input_prep import validate_data, articles, pages, combine_world_czech_articles
 
 
 class TestReadCsv(unittest.TestCase):
