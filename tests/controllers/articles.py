@@ -5,7 +5,7 @@ import unittest
 from app.controllers.articles import ArticlesController
 
 
-class TestArticleListRender(unittest.TestCase):
+class TestArticlesController(unittest.TestCase):
     """
     Unit test for article rendering to html code.
     """
