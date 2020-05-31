@@ -1,5 +1,5 @@
 """
-Base controller for html pahes.
+Base controller for html pages.
 """
 import os
 from jinja2 import FileSystemLoader, Environment
@@ -7,7 +7,7 @@ from jinja2 import FileSystemLoader, Environment
 
 class BaseController:
     """
-    Basic page renderer
+    Abstract class for all other controllers.
     """
 
     def __init__(self, title: str):
