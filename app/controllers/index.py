@@ -1,5 +1,5 @@
 """
-Rendering of articles to html code.
+Rendering of index to html code.
 """
 
 from app.controllers.base import BaseController
@@ -7,11 +7,12 @@ from app.controllers.base import BaseController
 
 class IndexController(BaseController):
     """
-    Class to render articles.
+    Class to render index.
     """
 
     def __init__(self):
         super().__init__('Vítejte na Telco oběžníku!')
+        self.description = 'sedí doma, píšou nabídky a už netrefí do práce'
 
     def to_html(self):
         """
@@ -22,4 +23,5 @@ class IndexController(BaseController):
 
         return template.render(
             title=self.title,
+            description = self.description
         )
