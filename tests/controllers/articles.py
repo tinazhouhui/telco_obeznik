@@ -36,13 +36,14 @@ class TestArticlesController(unittest.TestCase):
         }
         title = 'Month 2020'
         articles = ArticlesController(title, article_list)
-        self.assertIn(article_list['world'][0]['title'], articles.to_html())
-        self.assertIn(article_list['world'][0]['link'], articles.to_html())
-        self.assertIn(article_list['world'][0]['source'], articles.to_html())
-        self.assertIn(article_list['world'][0]['summary'], articles.to_html())
-        self.assertIn(article_list['czech'][0]['title'], articles.to_html())
-        self.assertIn(article_list['czech'][0]['link'], articles.to_html())
-        self.assertIn(article_list['czech'][0]['source'], articles.to_html())
-        self.assertIn(article_list['czech'][0]['summary'], articles.to_html())
+        output_articles = articles.to_html()
+        self.assertIn(article_list['world'][0]['title'], output_articles)
+        self.assertIn(article_list['world'][0]['link'], output_articles)
+        self.assertIn(article_list['world'][0]['source'], output_articles)
+        self.assertIn(article_list['world'][0]['summary'], output_articles)
+        self.assertIn(article_list['czech'][0]['title'], output_articles)
+        self.assertIn(article_list['czech'][0]['link'], output_articles)
+        self.assertIn(article_list['czech'][0]['source'], output_articles)
+        self.assertIn(article_list['czech'][0]['summary'], output_articles)
 
-        self.assertIn(title, articles.to_html())
+        self.assertIn(title, output_articles)

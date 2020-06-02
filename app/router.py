@@ -1,6 +1,7 @@
 """
 Router where the keys are the name of the page and value the html code that needs to be written.
 """
+from typing import Dict
 
 from app.controllers.archive import ArchiveController
 from app.controllers.articles import ArticlesController
@@ -16,7 +17,7 @@ def router(article_groups: dict) -> dict:
     index_page = IndexController()
     archive_page = ArchiveController()
 
-    routes = {
+    routes: Dict[str, str] = {
         'index.html': index_page.to_html(),
         'archive.html': archive_page.to_html(),
     }
