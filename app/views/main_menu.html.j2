@@ -1,17 +1,14 @@
-
 <ul class="row mt-2 main-menu">
   <li class="col col-12 col-lg-4 home">
     <a class="btn btn-primary btn-lg btn-block" href="index.html" style="color: #ffffff;" role="button">Domů</a>
   </li>
+
+  {% for month in menu %}
   <li class="col col-12 col-lg-2">
-    <a href="prosinec19.html">Test1 <span class="badge badge-secondary bg-primary">New</span></a>
+    <a href="{{ menu[month] }}">{{ month }}<span class="badge badge-secondary bg-primary">New</span></a>
   </li>
-  <li class="col col-12 col-lg-2">
-    <a href="zari19.html">Test2 </a>
-  </li>
-  <li class="col col-12 col-lg-2">
-    <a href="srpen19.html">Test3</a>
-  </li>
+  {% endfor %}
+
   <li class="col col-12 col-lg-2">
     <a href="archiv.html">Archiv</a>
   </li>

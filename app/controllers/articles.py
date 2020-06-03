@@ -10,19 +10,17 @@ class ArticlesController(BaseController):
     Class to render articles.
     """
 
-    def __init__(self, title: str, article_list):
-        super().__init__(title)
-
+    def __init__(self, menu: dict, title: str, article_list: dict):
+        super().__init__(menu, title)
         self.article_list = article_list
 
     def to_html(self):
         """
         renders each article to an html string and creates one continuous string.
         """
-
-        template = self.template_env.get_template("articles.html.j2")
-
-        return template.render(
+        article_html: str = self.render(
+            "articles.html.j2",
             article_list=self.article_list,
-            title=self.title,
         )
+
+        return article_html

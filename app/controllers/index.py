@@ -10,18 +10,17 @@ class IndexController(BaseController):
     Class to render index.
     """
 
-    def __init__(self):
-        super().__init__('Vítejte na Telco oběžníku!')
+    def __init__(self, menu: dict):
+        super().__init__(menu, 'Vítejte na Telco oběžníku!')
         self.description = 'sedí doma, píšou nabídky a už netrefí do práce'
 
     def to_html(self):
         """
         renders each article to an html string and creates one continuous string.
         """
-
-        template = self.template_env.get_template("index.html.j2")
-
-        return template.render(
-            title=self.title,
-            description = self.description
+        index_html = self.render(
+            "index.html.j2",
+            description=self.description,
         )
+
+        return index_html

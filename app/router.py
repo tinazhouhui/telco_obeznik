@@ -13,9 +13,13 @@ def router(article_groups: dict) -> dict:
     """
     Assign the correct value to correct page.
     """
-    #print(sorted(article_groups, reverse=True))
-    index_page = IndexController()
-    archive_page = ArchiveController()
+    menu = {}
+    top_3_articles = sorted(article_groups, reverse=True)[:3]
+    for article in top_3_articles:
+        menu[page_title(article)] = file_name(article)
+
+    index_page = IndexController(menu)
+    archive_page = ArchiveController(menu)
 
     routes: Dict[str, str] = {
         'index.html': index_page.to_html(),
@@ -24,7 +28,7 @@ def router(article_groups: dict) -> dict:
 
     for year_month in article_groups:
         articles_in_group = article_groups[year_month]
-        article_list = ArticlesController(page_title(year_month), articles_in_group)
+        article_list = ArticlesController(menu, page_title(year_month), articles_in_group)
         routes[file_name(year_month)] = article_list.to_html()
 
     return routes
