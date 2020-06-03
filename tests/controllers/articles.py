@@ -35,7 +35,13 @@ class TestArticlesController(unittest.TestCase):
             ],
         }
         title = 'Month 2020'
-        articles = ArticlesController(title, article_list)
+        menu = {
+            'test1': 'test1.html',
+            'test2': 'test2.html',
+            'test3': 'test3.html',
+        }
+
+        articles = ArticlesController(menu, title, article_list)
         output_articles = articles.to_html()
         self.assertIn(article_list['world'][0]['title'], output_articles)
         self.assertIn(article_list['world'][0]['link'], output_articles)
@@ -47,3 +53,7 @@ class TestArticlesController(unittest.TestCase):
         self.assertIn(article_list['czech'][0]['summary'], output_articles)
 
         self.assertIn(title, output_articles)
+
+        self.assertIn('test1', output_articles)
+        self.assertIn('test2', output_articles)
+        self.assertIn('test3.html', output_articles)

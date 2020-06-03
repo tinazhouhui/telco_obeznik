@@ -1,3 +1,5 @@
+from functools import partial
+
 """
 Base controller for html pages.
 """
@@ -10,7 +12,8 @@ class BaseController:
     Abstract class for all other controllers.
     """
 
-    def __init__(self, title: str):
+    def __init__(self, menu: dict, title: str):
+        self.menu = menu
         self.title = title
         template_path = os.path.dirname(__file__) + '/../views'
         template_loader = FileSystemLoader(searchpath=template_path)
@@ -18,3 +21,12 @@ class BaseController:
 
     def to_html(self) -> str:
         return 'Implement me!'
+
+    def render(self, template_path: str, **arguments) -> str:
+        template = self.template_env.get_template(template_path)
+
+        return template.render(
+            title=self.title,
+            menu=self.menu,
+            **arguments,
+        )
