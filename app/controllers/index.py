@@ -18,7 +18,9 @@ class IndexController(BaseController):
         """
         renders each article to an html string and creates one continuous string.
         """
-
-        return self.render("index.html.j2",
-            description=self.description
+        index_html = self.render(
+            "index.html.j2",
+            description=self.description,
         )
+
+        return index_html

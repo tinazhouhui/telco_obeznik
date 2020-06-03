@@ -12,6 +12,9 @@ class TestIndexController(unittest.TestCase):
     """
 
     def test_index(self):
+        """
+        Test index on all input values.
+        """
         menu = {
             'test1': 'test1.html',
             'test2': 'test2.html',
@@ -27,4 +30,3 @@ class TestIndexController(unittest.TestCase):
         self.assertIn('test1', output_index)
         self.assertIn('test2.html', output_index)
         self.assertIn('test3', output_index)
-

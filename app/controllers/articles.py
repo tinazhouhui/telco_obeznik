@@ -18,7 +18,9 @@ class ArticlesController(BaseController):
         """
         renders each article to an html string and creates one continuous string.
         """
-
-        return self.render("articles.html.j2",
+        article_html: str = self.render(
+            "articles.html.j2",
             article_list=self.article_list,
         )
+
+        return article_html
