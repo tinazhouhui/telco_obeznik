@@ -21,6 +21,7 @@ class ArticlesController(BaseController):
         article_html: str = self.render(
             "articles.html.j2",
             article_list=self.article_list,
+            archive_list=self.menu,
         )
 
         return article_html

@@ -1,0 +1,6 @@
+{% for route in archive_list %}
+<div class="list-group">
+    <h2>{{ route }}</h2>
+        <a href="{{ archive_list[route] }}" class="list-group-item list-group-item-action">Telco Oběžník {{ route }}</a>
+</div>
+{% endfor %}
