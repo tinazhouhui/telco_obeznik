@@ -14,6 +14,6 @@ jobs:
 
       - name: Release
         uses: actions/upload-artifact@v1
-          with:
-            name: Telco Obeznik
-            path: production/release/telco-obeczik.zip
+        with:
+          name: Telco Obeznik
+          path: production/release/telco-obeczik.zip
