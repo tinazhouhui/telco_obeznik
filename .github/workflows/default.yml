@@ -13,8 +13,7 @@ jobs:
         run: make -C production/ package
 
       - name: Release
-        uses: skx/github-action-publish-binaries@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: 'production/release/*'
+        uses: actions/upload-artifact@v1
+          with:
+            name: Telco Obeznik
+            path: production/release/telco-obeczik.zip
