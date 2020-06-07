@@ -40,7 +40,7 @@ app: pip tests
 .PHONY: package
 package: app
 	@(printf "${BG}Creating ZIP package version $(version)${NC}")
-		cd $(build) && zip -r $(release)/telco-obeczik.zip * .[^.]*
+		cd $(build) && zip -r $(release)/telco-obeznik.zip * .[^.]*
 		echo $(version) > $(release)/latest.version
 
 .PHONY: tests

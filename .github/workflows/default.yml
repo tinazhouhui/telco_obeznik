@@ -15,5 +15,5 @@ jobs:
       - name: Release
         uses: actions/upload-artifact@v1
         with:
-          name: Telco Obeznik
-          path: production/release/telco-obeczik.zip
+          name: Telco Oěžnik # double zipping issue: https://github.com/actions/upload-artifact/issues/39
+          path: production/release/telco-obeznik.zip
