@@ -1,0 +1,17 @@
+name: Default
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@master
+
+      - name: Test
+        run: python3 -m unittest tests/*.py
+
+      - name: Build
+        run: python3 generate.py
+
+      - name: Release
+        run: ls -l www
