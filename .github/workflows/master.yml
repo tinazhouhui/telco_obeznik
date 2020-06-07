@@ -22,10 +22,10 @@ jobs:
           path: production/release/telco-obeznik.zip
 
       - name: Deploy to Staging
-        uses: sebastianpopp/git-ftp-action@releases/v3
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-          url: "ftp://stagingtelcobeznik.chytrak.cz"
+          host: stagingtelcobeznik.chytrak.cz
           user: stagingtelcobeznik.chytrak.cz
           password: ${{ secrets.FTP_PASSWORD }}
-          syncroot: www
-          options: "--auto-init --insecure --dry-run --disable-epsv"
+          localDir: "www"
+          #remoteDir: "./"
