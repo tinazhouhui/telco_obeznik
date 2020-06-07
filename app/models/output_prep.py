@@ -1,4 +1,6 @@
-
+"""
+output dictionary prep to insert into views.
+"""
 
 from app.models.date_parsing import file_name, page_title
 

@@ -5,7 +5,7 @@ import unittest
 from app.models.input_prep import validate_data, articles, pages, combine_world_czech_articles
 
 
-class TestReadCsv(unittest.TestCase):
+class TestInputPrep(unittest.TestCase):
     """
     Test data transformation formatting.
     """
