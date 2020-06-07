@@ -7,11 +7,8 @@ jobs:
       - name: Clone
         uses: actions/checkout@master
 
-      - name: Test
-        run: python3 -m unittest tests/*.py
-
       - name: Build
-        run: python3 generate.py
+        run: make -C production/ package
 
       - name: Release
-        run: ls -l www
+        run: cd production/release && ls -l
