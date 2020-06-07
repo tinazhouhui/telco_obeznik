@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Clone
         uses: actions/checkout@master
+        with:
+          fetch-depth: 100
 
       - name: Build
         run: make -C production/ package
