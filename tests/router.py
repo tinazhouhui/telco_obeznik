@@ -10,14 +10,6 @@ class TestRouter(unittest.TestCase):
     """
     Integration test for router.
     """
-    def test_router_empty(self):
-        """
-        tests empty dictionary.
-        """
-        input = {}
-        output = list(router(input).keys())
-
-        self.assertEqual(output, ['index.html', 'archive.html'], "the router is not empty")
 
     def test_router_keys(self):
         """
@@ -45,10 +37,39 @@ class TestRouter(unittest.TestCase):
                         'date': 'February 2020',
                     },
                 ],
-            }
+            },
+            '2020-03': {
+                'world': [
+                    {
+                        'title': '3 yup router',
+                        'link': 'https://www.router.com',
+                        'source': 'really 3 router',
+                        'summary': 'an amazing 3 router',
+                        'date': 'March 2020',
+                    },
+                ],
+            },
+            '2020-04': {
+                'czech': [
+                    {
+                        'title': 'april router',
+                        'link': 'https://www.router.co.uk',
+                        'source': 'routers of april',
+                        'summary': 'april fools router',
+                        'date': 'April 2020',
+                    },
+                ],
+            },
         }
         output = list(router(article_input).keys())
-        expected_output = ['index.html', 'archive.html', 'january20.html', 'february20.html']
+        expected_output = [
+            'index.html',
+            'archive.html',
+            'january20.html',
+            'february20.html',
+            'march20.html',
+            'april20.html',
+        ]
 
         self.assertEqual(output, expected_output, "router is not assigning correct routes")
 

@@ -7,24 +7,20 @@ from app.controllers.archive import ArchiveController
 from app.controllers.articles import ArticlesController
 from app.controllers.index import IndexController
 from app.models.date_parsing import file_name, page_title
+from app.models.output_prep import create_all_links, create_latest_page, create_menu
 
 
 def router(pages_groups: dict) -> dict:
     """
     Assign the correct value to correct page.
     """
-    menu_all = {}
-    all_pages = sorted(pages_groups, reverse=True)
-    for page in all_pages:
-        menu_all[page_title(page)] = file_name(page)
-
-    latest_page = list(menu_all.values())[0]
-    menu = {k: menu_all[k] for k in list(menu_all)[:3]}
-    print(menu)
+    all_links = create_all_links(pages_groups)
+    latest_page = create_latest_page(all_links)
+    menu = create_menu(all_links)
 
 
     index_page = IndexController(menu, latest_page)
-    archive_page = ArchiveController(menu, menu_all)
+    archive_page = ArchiveController(menu, all_links)
 
     routes: Dict[str, str] = {
         'index.html': index_page.to_html(),
