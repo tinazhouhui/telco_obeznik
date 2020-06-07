@@ -46,4 +46,4 @@ package: app
 .PHONY: tests
 tests:
 	@(printf "${BG}Running Unit Tests${NC}")
-		cd $(root_project) && python3 -m unittest tests/*.py
+		cd $(root_project) && python3 -m unittest tests/**/*.py
