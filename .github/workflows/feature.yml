@@ -1,0 +1,22 @@
+name: Feature
+push:
+  branches:
+    - '*'
+    - !master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Build
+        run: make -C production/ package
+
+      - name: Release
+        uses: actions/upload-artifact@v1
+        with:
+          name: telco-obeznik # double zipping issue: https://github.com/actions/upload-artifact/issues/39
+          path: production/release/telco-obeznik.zip

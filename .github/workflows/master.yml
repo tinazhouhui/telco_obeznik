@@ -1,8 +1,7 @@
-name: Feature Branch
+name: Master
 push:
   branches:
-    - '*'
-    - !master
+    - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,3 +19,6 @@ jobs:
         with:
           name: telco-obeznik # double zipping issue: https://github.com/actions/upload-artifact/issues/39
           path: production/release/telco-obeznik.zip
+
+      - name: Deploy to Staging
+        run: echo "Fake staging deployment"
