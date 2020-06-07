@@ -2,10 +2,10 @@
 Unit test for input prep
 """
 import unittest
-from app.input_prep import validate_data, articles, pages, combine_world_czech_articles
+from app.models.input_prep import validate_data, articles, pages, combine_world_czech_articles
 
 
-class TestReadCsv(unittest.TestCase):
+class TestInputPrep(unittest.TestCase):
     """
     Test data transformation formatting.
     """
@@ -84,7 +84,7 @@ class TestReadCsv(unittest.TestCase):
         self.assertEqual(output[0]['link'], "col2")
         self.assertEqual(output[0]['source'], "col3")
         self.assertEqual(output[0]['summary'], "col4")
-        self.assertEqual(output[0]['date'], "December 2020")
+        self.assertEqual(output[0]['date'], "2020-12")
         self.assertEqual(len(output[0]), 5)
 
     def test_pages_empty(self):

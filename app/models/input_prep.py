@@ -3,14 +3,12 @@ Read and transform data.
 """
 import csv
 from datetime import datetime
-from app.validator import Validator
+from app.models.validator import Validator
 
 
-def read_csv(path):
+def read_csv(path: str) -> []:
     """
     read the input csv
-    :type path: path to the csvfile
-    :rtype list
     """
 
     output = []
@@ -59,7 +57,7 @@ def articles(input_data):
             'link': row[1],
             'source': row[2],
             'summary': row[3],
-            'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%B %Y")
+            'date': datetime.strptime(row[4][3:], '%m.%Y').strftime("%Y-%m")
         }
         articles_details.append(article_details)
 

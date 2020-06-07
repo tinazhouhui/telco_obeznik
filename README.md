@@ -18,7 +18,7 @@ python3 generate.py
 Simply run the command in bash in the root directory of your project:
 
 ```bash
-python3 -m unittest tests/*
+python3 -m unittest tests/**/*.py
 ```
 
 ## Coverage report

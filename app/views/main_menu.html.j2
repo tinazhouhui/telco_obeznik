@@ -1,0 +1,15 @@
+<ul class="row mt-2 main-menu">
+  <li class="col col-12 col-lg-4 home">
+    <a class="btn btn-primary btn-lg btn-block" href="index.html" style="color: #ffffff;" role="button">Domů</a>
+  </li>
+
+  {% for month in menu %}
+  <li class="col col-12 col-lg-2">
+    <a href="{{ menu[month] }}">{{ month }}</a>
+  </li>
+  {% endfor %}
+
+  <li class="col col-12 col-lg-2">
+    <a href="archive.html">Archiv</a>
+  </li>
+</ul>

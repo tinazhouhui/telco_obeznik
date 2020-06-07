@@ -1,0 +1,22 @@
+{% extends "layout.html.j2" %}
+{% block content %}
+    <div class="text-justify">
+        <div class="row">
+            <div class="jumbotron">
+			  <h1 class="display-4">{{ title }}</h1>
+			  <p class="lead"> Tato stránka je věnovaná všem nadšencům ze světa Telekomunikací, kteří {{ description }}.</p>
+			  <hr class="my-4">
+			  <a class="btn btn-primary btn-lg" href="archiv.html" role="button">Seznam všech oběžníků</a>
+			</div>
+
+            <div class="card mb-3 mt-3">
+			  <h5 class="card-header">Novinka</h5>
+			  <div class="card-body row">
+			    <h2 class="card-title col-8 m-0">Nejnovější oběžník</h2>
+			    <a href="{{ link }}" class="btn btn-primary col-4"><h3 class="m-0 pt-3" style="color: #ffffff;">K přečtení zde</h3></a>
+			  </div>
+			</div>
+
+        </div>
+    </div>
+{% endblock %}
