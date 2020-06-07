@@ -1,0 +1,131 @@
+body {
+	font-family: 'Quicksand', sans-serif;
+	/*min-width: 640px;*/
+}
+
+h1 {
+	font-size: 70px;
+	background: #0290DA;
+	color: #ffffff;
+	text-align: center;
+}
+
+h2 {
+	font-size: 60px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: #00338D;
+}
+
+h3 {
+	font-family: Arial,Helvetica,sans-serif;
+	margin-bottom: 10px;
+	margin-top: 50px;
+	color:#00338D;
+
+}
+h3 a {
+	color:#0290DA;
+}
+
+.toptitle {
+	background: #00338D;
+}
+.title {
+	font-size: 90px;
+}
+
+.title a {
+	color: #ffffff;
+}
+
+.fa-paper-plane {
+	color: #ffffff;
+
+}
+
+
+.main-menu {
+	list-style: none;
+	font-weight: bold;
+	padding: 16px;
+	text-align: center;
+	border-bottom-style: solid;
+	border-bottom-color: #00338D;
+	border-bottom-width: 5px;
+	margin-bottom: 0px;
+}
+
+.main-menu a {
+	color:#005EB8;
+}
+
+.text {
+	padding-left: 68px;
+	padding-right: 68px;
+}
+
+.btn {
+	/*background: #0290DA;
+	border-color: #0290DA;*/
+}
+
+.figures {
+	list-style: none;
+}
+
+.figures li {
+	margin: 50px;
+}
+
+.figureText {
+	font-size: 30px;
+	color: #00338D;
+}
+
+/*
+Extended from bootstrap
+*/
+.table-responsive-sm {
+	margin-right: 68px;
+	margin-left: 68px;
+	margin-bottom: 30px;
+}
+
+table th {
+	background: #005EB8;
+	color:#ffffff;
+}
+
+.rowhighlight {
+	background: #0290DA;
+	color:#ffffff;
+}
+
+.source {
+	color: #0290DA;
+ 	display: block;
+ 	padding-right: 80px;
+ 	text-align: right;
+ 	margin-bottom: 80px;
+}
+
+.source a {
+	color: #0290DA;
+}
+
+.jumbotron h1 {
+	font-size: 70px;
+	color: #00338D;
+	background: #e9ecef;
+	text-align: left;
+}
+
+.card img {
+	padding-top:15px;
+}
+
+.card-header {
+	background: #00338D;
+	color: #ffffff;
+}

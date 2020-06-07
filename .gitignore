@@ -2,10 +2,8 @@ classes.py
 nosetests.json
 __pycache__
 .coverage
-www
-!www/css
-!www/images
-!www/robots.txt
+www/*.html
+www/version.txt
 .idea
 
 production/release/
