@@ -13,4 +13,9 @@ jobs:
         run: make -C production/ package
 
       - name: Release
-        run: cd production/release && ls -l
+        uses: Roang-zero1/github-upload-release-artifacts-action@master
+        with:
+          args:
+            - production/release/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
