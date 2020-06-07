@@ -3,6 +3,9 @@ nosetests.json
 __pycache__
 .coverage
 www
+!www/css
+!www/images
+!www/robots.txt
 .idea
 
 production/release/
