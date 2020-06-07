@@ -28,3 +28,4 @@ jobs:
           ftp-username: stagingtelcobeznik.chytrak.cz
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: www
+          git-ftp-args: "--dry-run"
