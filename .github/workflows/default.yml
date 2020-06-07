@@ -13,9 +13,8 @@ jobs:
         run: make -C production/ package
 
       - name: Release
-        uses: Roang-zero1/github-upload-release-artifacts-action@master
-        with:
-          args:
-            - production/release
+        uses: skx/github-action-publish-binaries@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: 'production/release/*'
