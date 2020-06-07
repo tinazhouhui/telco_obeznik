@@ -13,7 +13,7 @@ def read_csv(path: str) -> []:
 
     output = []
 
-    with open(path, newline='') as csvfile:
+    with open(path, newline='', encoding='utf8') as csvfile:
         input_data = csv.reader(csvfile, delimiter=";")
         next(input_data)  # skips header row
 
