@@ -1,9 +1,11 @@
+node_modules
 classes.py
 nosetests.json
 __pycache__
 .coverage
 www/*.html
 www/version.txt
+www/css/style-*.css
 .idea
 
 production/release/
