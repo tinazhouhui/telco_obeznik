@@ -4,13 +4,24 @@
 
 Pet project. Website that collects relevant information regarding the world of telecommunication.
 
-## Reguirements
+## Requirements
 - Python3
+- NodeJS 10+
 - Valid CSV
+
+
+## Installation
+```
+#!bash
+
+pip3 install
+npm install
+```
 
 ## Run
 ```bash
 python3 generate.py
+npm run start
 ```
 
 ## Unit testing
