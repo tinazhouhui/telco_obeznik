@@ -16,8 +16,11 @@ clean:
 	@(printf "${BG}Cleaning project${NC}")
 		rm -rf $(build)
 		rm -rf $(target)
-		rm -rf $(root_project)/log
-		rm -rf $(root_project)/temp
+
+.PHONY: npm
+npm:
+	@(printf "${BG}Installing NPM dependencies${NC}")
+		cd $(root_project) && npm install
 
 .PHONY: pip
 pip:
@@ -25,7 +28,7 @@ pip:
 		pip3 install -r $(root_project)/requirements.txt
 
 .PHONY: app
-app: pip tests
+app: pip npm tests
 	@(printf "${BG}Preparing build directory${NC}")
 		mkdir -p $(build)
 		mkdir -p $(release)
@@ -36,6 +39,9 @@ app: pip tests
 
 	@(printf "${BG}Generating pages${NC}")
 		cd $(root_project) && python3 generate.py "$(version)"
+
+	@(printf "${BG}Running Gulp tasks${NC}")
+		cd $(root_project) && export FORCE_COLOR=1 && node_modules/.bin/gulp production --appVersion=$(version)
 
 .PHONY: package
 package: app
