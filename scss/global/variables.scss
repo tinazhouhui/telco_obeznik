@@ -1,0 +1,11 @@
+@import '../../node_modules/bootstrap/scss/functions';
+
+$theme-colors: (
+        primary: #005096,
+        secondary: #3899db,
+);
+
+
+$breadcrumb-divider: quote('>');
+
+@import '../../node_modules/bootstrap/scss/variables';

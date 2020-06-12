@@ -5,6 +5,7 @@ __pycache__
 .coverage
 www/*.html
 www/version.txt
+www/css/style-*.css
 .idea
 
 production/release/
