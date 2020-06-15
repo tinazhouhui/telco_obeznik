@@ -1,15 +1,15 @@
 .toptitle {
-	background: #00338D;
+  background: $color-dark-blue;
 }
 
 .title {
-	font-size: 90px;
-}
+  font-size: 90px;
 
-.title a {
-	color: #ffffff;
+  & a {
+    color: $color-white;
+  }
 }
 
 .fa-paper-plane {
-	color: #ffffff;
+  color: $color-white;
 }
