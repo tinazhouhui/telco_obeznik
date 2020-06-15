@@ -18,7 +18,6 @@ def router(pages_groups: dict) -> dict:
     latest_page = create_latest_page(all_links)
     menu = create_menu(all_links)
 
-
     index_page = IndexController(menu, latest_page)
     archive_page = ArchiveController(menu, all_links)
 

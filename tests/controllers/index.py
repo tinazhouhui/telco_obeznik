@@ -36,5 +36,3 @@ class TestIndexController(unittest.TestCase):
         self.assertIn('test2.html', output_index)
         self.assertIn('test3', output_index)
         self.assertNotIn('test4', output_index, 'menu not correct')
-
-
