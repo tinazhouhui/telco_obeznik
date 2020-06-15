@@ -1,7 +1,7 @@
 @import '../../node_modules/bootstrap/scss/functions';
 
 $theme-colors: (
-        primary: #005096,
+        primary: #0290da,
         secondary: #3899db,
 );
 
@@ -9,3 +9,8 @@ $theme-colors: (
 $breadcrumb-divider: quote('>');
 
 @import '../../node_modules/bootstrap/scss/variables';
+
+$color-white: #fff;
+$color-dark-blue: #00338d;
+$color-light-blue: #0290da;
+$color-gray: #e9ecef;

@@ -104,5 +104,3 @@ class TestReadCsv(unittest.TestCase):
             'march20.html',
             'february20.html'
         ], "menu not correct")
-
-

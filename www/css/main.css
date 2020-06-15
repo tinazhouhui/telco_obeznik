@@ -3,7 +3,7 @@ body {
 	/*min-width: 640px;*/
 }
 
-h1 {
+/*h1 {
 	font-size: 70px;
 	background: #0290DA;
 	color: #ffffff;
@@ -23,12 +23,12 @@ h3 {
 	margin-top: 50px;
 	color:#00338D;
 
-}
+}*/
 h3 a {
 	color:#0290DA;
 }
 
-.toptitle {
+/*.toptitle {
 	background: #00338D;
 }
 .title {
@@ -37,11 +37,10 @@ h3 a {
 
 .title a {
 	color: #ffffff;
-}
+}*/
 
-.fa-paper-plane {
+/*.fa-paper-plane {
 	color: #ffffff;
-
 }
 
 
@@ -66,9 +65,9 @@ h3 a {
 }
 
 .btn {
-	/*background: #0290DA;
-	border-color: #0290DA;*/
-}
+	background: #0290DA;
+	border-color: #0290DA;
+}*/
 
 .figures {
 	list-style: none;
@@ -114,18 +113,18 @@ table th {
 	color: #0290DA;
 }
 
-.jumbotron h1 {
+/*.jumbotron h1 {
 	font-size: 70px;
 	color: #00338D;
 	background: #e9ecef;
 	text-align: left;
-}
+}*/
 
 .card img {
 	padding-top:15px;
 }
 
-.card-header {
+/*.card-header {
 	background: #00338D;
 	color: #ffffff;
-}
+}*/

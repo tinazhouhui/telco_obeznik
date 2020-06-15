@@ -27,8 +27,8 @@ const cssmin = () => {
     .pipe(postcss([
       autoprefixer(),
       cssnano({
-        reduceIdents: false
-      })
+        reduceIdents: false,
+      }),
     ]))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('www/css'));

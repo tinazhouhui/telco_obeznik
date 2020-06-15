@@ -72,4 +72,3 @@ class TestRouter(unittest.TestCase):
         ]
 
         self.assertEqual(output, expected_output, "router is not assigning correct routes")
-

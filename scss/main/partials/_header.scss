@@ -1,3 +1,15 @@
-.header {
+.toptitle {
+  background: $color-dark-blue;
+}
 
+.title {
+  font-size: 90px;
+
+   a {
+    color: $color-white;
+  }
+}
+
+.fa-paper-plane {
+  color: $color-white;
 }
