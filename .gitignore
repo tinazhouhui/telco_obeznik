@@ -6,6 +6,7 @@ __pycache__
 www/*.html
 www/version.txt
 www/css/style-*.css
+www/css/*
 .idea
 
 production/release/
