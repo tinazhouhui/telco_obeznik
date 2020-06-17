@@ -66,7 +66,7 @@ class TestReadCsv(unittest.TestCase):
         output_keys = list(create_all_links(pages_groups).keys())
         output_values = len(list(create_all_links(pages_groups).values()))
 
-        self.assertEqual(output_keys, ['April', 'March', 'February', 'January',], 'links not matching')
+        self.assertEqual(output_keys, ['Duben', 'Březen', 'Únor', 'Leden',], 'links not matching')
         self.assertEqual(output_values, 4, 'number of links not matching')
 
     def test_create_latest_page(self):
@@ -88,19 +88,19 @@ class TestReadCsv(unittest.TestCase):
         testing that menu has only three items and is correct
         """
         all_links = {
-            'April': 'april20.html',
-            'March': 'march20.html',
-            'February': 'february20.html',
-            'January': 'january20.html',
+            'Duben': 'april20.html',
+            'Březen': 'march20.html',
+            'Únor': 'february20.html',
+            'Leden': 'january20.html',
         }
 
         output_keys = list(create_menu(all_links).keys())
         output_values = list(create_menu(all_links).values())
 
         self.assertEqual(len(output_keys), 3, 'menu too long')
-        self.assertEqual(output_keys, ['April', 'March', 'February'], "menu not correct")
+        self.assertEqual(output_keys, ['Duben', 'Březen', 'Únor'], "menu not correct")
         self.assertEqual(output_values, [
             'april20.html',
             'march20.html',
             'february20.html'
-        ], "menu not correct")
+        ], "menu links not correct")
