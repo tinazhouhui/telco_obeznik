@@ -23,6 +23,9 @@ def translate(month: str) -> str:
         'November': 'Listopad',
         'December': 'Prosinec',
     }
+    if month not in months_dict:
+        raise Exception('Only months in English with first capital letter')
+    
     month_translated = months_dict[month]
 
     return month_translated
