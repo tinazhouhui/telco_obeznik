@@ -10,10 +10,11 @@ class IndexController(BaseController):
     Class to render index.
     """
 
-    def __init__(self, menu: dict, link: str):
+    def __init__(self, menu: dict, link: str, month: str):
         super().__init__(menu, 'Vítejte na Telco oběžníku!')
         self.description = 'v tuto chvíli píšou nabídky z domova, těší se na sud piva a už netrefí do práce'
         self.link = link
+        self.month = month
 
     def to_html(self) -> str:
         """
@@ -23,6 +24,7 @@ class IndexController(BaseController):
             "index.html.j2",
             description=self.description,
             link=self.link,
+            month=self.month
         )
 
         return index_html
