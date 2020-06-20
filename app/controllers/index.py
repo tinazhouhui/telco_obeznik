@@ -12,7 +12,7 @@ class IndexController(BaseController):
 
     def __init__(self, menu: dict, link: str, month: str):
         super().__init__(menu, 'Vítejte na Telco oběžníku!')
-        self.description = 'v tuto chvíli píšou nabídky z domova, těší se na sud piva a už netrefí do práce'
+        self.description = 'už opět jezdí do Brna, ještě jsou nadšení z HomeOfficu a těší se na sud piva'
         self.link = link
         self.month = month
 

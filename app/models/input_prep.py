@@ -14,7 +14,7 @@ def read_csv(path: str) -> []:
     output = []
 
     with open(path, newline='', encoding='utf8') as csvfile:
-        input_data = csv.reader(csvfile, delimiter=";")
+        input_data = csv.reader(csvfile, delimiter=",")
         next(input_data)  # skips header row
 
         for row in input_data:
@@ -25,7 +25,7 @@ def read_csv(path: str) -> []:
 
 def validate_data(raw_data):
     """
-    Validates that raw input data are in the correct format.
+    Validates that raw input data are in the correct format. If error here, check the delimiter.
     :type raw_data: list
     :rtype list
     """

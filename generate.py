@@ -12,7 +12,7 @@ from app.models.input_prep import (
 from app.router import router
 
 PIPELINE = [read_csv, validate_data, articles, pages]
-OUTPUT_CZECH = './inputs/data_dec19.csv'
+OUTPUT_CZECH = './inputs/data_czech.csv'
 OUTPUT_WORLD = './inputs/data_world.csv'
 
 for function in PIPELINE:
