@@ -20,5 +20,5 @@ class ArchiveController(BaseController):
 
         return self.render(
             "archive.html.j2",
-            archive_list=self.menu_all,
+            archive_menu=self.menu_all,
         )

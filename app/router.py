@@ -7,7 +7,8 @@ from app.controllers.archive import ArchiveController
 from app.controllers.articles import ArticlesController
 from app.controllers.index import IndexController
 from app.models.date_parsing import file_name, page_title
-from app.models.output_prep import create_all_links, create_latest_page, create_menu
+from app.models.output_prep import create_all_links, create_latest_page, create_menu, \
+    create_latest_month, create_archive_menu
 
 
 def router(pages_groups: dict) -> dict:
@@ -16,10 +17,12 @@ def router(pages_groups: dict) -> dict:
     """
     all_links = create_all_links(pages_groups)
     latest_page = create_latest_page(all_links)
+    latest_month = create_latest_month(all_links)
     menu = create_menu(all_links)
+    archive_menu = create_archive_menu(all_links)
 
-    index_page = IndexController(menu, latest_page)
-    archive_page = ArchiveController(menu, all_links)
+    index_page = IndexController(menu, latest_page, latest_month)
+    archive_page = ArchiveController(menu, archive_menu)
 
     routes: Dict[str, str] = {
         'index.html': index_page.to_html(),

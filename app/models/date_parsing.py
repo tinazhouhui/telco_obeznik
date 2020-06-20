@@ -30,6 +30,6 @@ def file_name(year_month: str) -> str:
     Format year month string to filename format.
     """
     parsed_date = year_month_parsing(year_month)
-    filename = parsed_date.lower().replace(re.search(r"\s\d{2}", parsed_date).group(), "") + ".html"
+    filename = parsed_date.lower().replace(re.search(r"\s", parsed_date).group(), "") + ".html"
 
     return filename

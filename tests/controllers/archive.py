@@ -4,7 +4,7 @@ Unit test for archive page.
 import unittest
 
 from app.controllers.archive import ArchiveController
-from app.models.output_prep import create_menu
+from app.models.output_prep import create_menu, create_archive_menu
 
 
 class TestArchiveController(unittest.TestCase):
@@ -23,8 +23,9 @@ class TestArchiveController(unittest.TestCase):
             'test4': 'test4.html'
         }
         menu = create_menu(all_menu)
+        archive_menu = create_archive_menu(all_menu)
 
-        archive = ArchiveController(menu, all_menu)
+        archive = ArchiveController(menu, archive_menu)
         output_index = archive.to_html()
 
         self.assertIn('test1', output_index)
