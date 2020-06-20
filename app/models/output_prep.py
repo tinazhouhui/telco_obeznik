@@ -5,6 +5,32 @@ output dictionary prep to insert into views.
 from app.models.date_parsing import file_name, page_title
 
 
+def translate(month: str) -> str:
+    """
+    translates months to czech
+    """
+    months_dict = {
+        'January': 'Leden',
+        'February': 'Únor',
+        'March': 'Březen',
+        'April': 'Duben',
+        'May': 'Květen',
+        'June': 'Červen',
+        'July': 'Červenec',
+        'August': 'Srpen',
+        'September': 'Září',
+        'October': 'Říjen',
+        'November': 'Listopad',
+        'December': 'Prosinec',
+    }
+    if month not in months_dict:
+        raise Exception('Only months in English with first capital letter')
+
+    month_translated = months_dict[month]
+
+    return month_translated
+
+
 def create_all_links(pages_groups: dict) -> dict:
     """
     creates a dictionary with month = page as key and file link as value
@@ -12,7 +38,7 @@ def create_all_links(pages_groups: dict) -> dict:
     all_links = {}
     all_pages = sorted(pages_groups, reverse=True)
     for page in all_pages:
-        all_links[page_title(page)] = file_name(page)
+        all_links[translate(page_title(page))] = file_name(page)
 
     return all_links
 
@@ -33,3 +59,5 @@ def create_menu(all_links: dict) -> dict:
     menu = {k: all_links[k] for k in list(all_links)[:3]}
 
     return menu
+
+

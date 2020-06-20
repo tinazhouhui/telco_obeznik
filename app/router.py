@@ -7,7 +7,7 @@ from app.controllers.archive import ArchiveController
 from app.controllers.articles import ArticlesController
 from app.controllers.index import IndexController
 from app.models.date_parsing import file_name, page_title
-from app.models.output_prep import create_all_links, create_latest_page, create_menu
+from app.models.output_prep import create_all_links, create_latest_page, create_menu, translate
 
 
 def router(pages_groups: dict) -> dict:
@@ -28,7 +28,7 @@ def router(pages_groups: dict) -> dict:
 
     for year_month in pages_groups:
         articles_per_page = pages_groups[year_month]
-        article_list = ArticlesController(menu, page_title(year_month), articles_per_page)
+        article_list = ArticlesController(menu, translate(page_title(year_month)), articles_per_page)
         routes[file_name(year_month)] = article_list.to_html()
 
     return routes
