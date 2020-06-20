@@ -29,7 +29,7 @@ def save_files(all_pages: dict):
     generate and save files in correct directory.
     """
     for file in all_pages:
-        generated_file = open(r".\www\{}".format(file), "w+", encoding='utf8')
+        generated_file = open("./www/{}".format(file), "w+", encoding='utf8')
         generated_file.write(all_pages[file])
         generated_file.close()
 
