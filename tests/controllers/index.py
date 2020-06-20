@@ -4,7 +4,7 @@ Unit test for index page.
 import unittest
 
 from app.controllers.index import IndexController
-from app.models.output_prep import create_menu, create_latest_page
+from app.models.output_prep import create_menu, create_latest_page, create_latest_month
 
 
 class TestIndexController(unittest.TestCase):
@@ -24,12 +24,14 @@ class TestIndexController(unittest.TestCase):
         }
         menu = create_menu(all_menu)
         link = create_latest_page(all_menu)
+        month = create_latest_month(all_menu)
 
-        index = IndexController(menu, link)
+        index = IndexController(menu, link, month)
         output_index = index.to_html()
 
         self.assertIn('Vítejte', output_index, 'string not found')
         self.assertIn('těší se na sud piva', output_index, 'description string not found')
+        self.assertEqual('test1', month, 'latest month incorrect')
         # tenhle test me dobehne
 
         self.assertIn('test1', output_index)

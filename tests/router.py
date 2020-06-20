@@ -65,10 +65,10 @@ class TestRouter(unittest.TestCase):
         expected_output = [
             'index.html',
             'archive.html',
-            'january20.html',
-            'february20.html',
-            'march20.html',
-            'april20.html',
+            'january2020.html',
+            'february2020.html',
+            'march2020.html',
+            'april2020.html',
         ]
 
         self.assertEqual(output, expected_output, "router is not assigning correct routes")

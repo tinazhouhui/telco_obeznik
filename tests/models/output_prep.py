@@ -4,7 +4,9 @@ Unit test for input prep
 
 import unittest
 
-from app.models.output_prep import create_all_links, create_latest_page, create_menu, translate
+from app.models.output_prep import create_all_links, create_latest_page, create_menu, \
+    create_archive_menu, create_latest_month, translate
+
 
 
 class TestReadCsv(unittest.TestCase):
@@ -83,6 +85,22 @@ class TestReadCsv(unittest.TestCase):
 
         self.assertEqual(output, 'april20.html', 'not latest page')
 
+    def test_create_latest_menu(self):
+        """
+        testing that only latest page name is taken
+        """
+        all_links = {
+            'April': 'april20.html',
+            'March': 'march20.html',
+            'February': 'february20.html',
+        }
+
+        output = create_latest_month(all_links)
+
+        self.assertEqual('April', output, "latest month not correct")
+
+
+
     def test_create_menu(self):
         """
         testing that menu has only three items and is correct
@@ -104,6 +122,29 @@ class TestReadCsv(unittest.TestCase):
             'march20.html',
             'february20.html'
         ], "menu links not correct")
+
+    def test_create_archive_menu(self):
+        """
+        testing that archive menu has correct links assigned
+        """
+
+        all_links = {
+            'Duben': 'april2020.html',
+            'Květen': 'may2020.html',
+            'Září': 'september2019.html',
+        }
+
+        output = create_archive_menu(all_links)
+
+        self.assertEqual({
+            '2020':{
+                'Duben': 'april2020.html',
+                'Květen': 'may2020.html',
+            },
+            '2019':{
+                'Září': 'september2019.html',
+            },
+        }, output, "the archive is not correct")  
 
     def test_translate(self):
 

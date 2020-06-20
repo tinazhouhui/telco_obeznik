@@ -36,4 +36,4 @@ class TestReadCsv(unittest.TestCase):
         year_name = "1993-04"
         output = file_name(year_name)
 
-        self.assertEqual(output, "april93.html", "filename not correct")
+        self.assertEqual(output, "april1993.html", "filename not correct")
