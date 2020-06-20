@@ -4,7 +4,7 @@ Unit test for input prep
 
 import unittest
 
-from app.models.output_prep import create_all_links, create_latest_page, create_menu
+from app.models.output_prep import create_all_links, create_latest_page, create_menu, translate
 
 
 class TestReadCsv(unittest.TestCase):
@@ -104,3 +104,9 @@ class TestReadCsv(unittest.TestCase):
             'march20.html',
             'february20.html'
         ], "menu links not correct")
+
+    def test_translate(self):
+
+        self.assertEqual('Duben', translate('April'), 'translate not correct')
+        with self.assertRaises(Exception):
+            translate('april')
