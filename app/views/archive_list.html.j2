@@ -1,7 +1,6 @@
 {% for year in archive_menu %}
+<h2>{{ year }}</h2>
 <div class="list-group">
-    <h2>{{ year }}</h2>
-
     {% for month in archive_menu[year] %}
         <a href="{{ archive_menu[year][month] }}" class="list-group-item list-group-item-action">Telco Oběžník {{ month }}</a>
     {% endfor %}
