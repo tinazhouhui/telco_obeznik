@@ -20,7 +20,7 @@ def page_title(year_month: str) -> str:
     Format year month string to title page format.
     """
     parsed_date = year_month_parsing(year_month)
-    title = parsed_date[:-5]
+    title = parsed_date
 
     return title
 

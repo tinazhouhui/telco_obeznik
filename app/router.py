@@ -32,7 +32,7 @@ def router(pages_groups: dict) -> dict:
 
     for year_month in pages_groups:
         articles_per_page = pages_groups[year_month]
-        article_list = ArticlesController(menu, translate(page_title(year_month)), articles_per_page)
+        article_list = ArticlesController(menu, translate(page_title(year_month)[:-5]), articles_per_page)
         routes[file_name(year_month)] = article_list.to_html()
 
     return routes

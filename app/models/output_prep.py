@@ -36,9 +36,11 @@ def create_all_links(pages_groups: dict) -> dict:
     creates a dictionary with month = page as key and file link as value
     """
     all_links = {}
+
     all_pages = sorted(pages_groups, reverse=True)
+
     for page in all_pages:
-        all_links[translate(page_title(page))] = file_name(page)
+        all_links[page_title(page)] = file_name(page)
 
     return all_links
 
