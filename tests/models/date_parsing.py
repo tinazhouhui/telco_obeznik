@@ -6,7 +6,7 @@ import unittest
 from app.models.date_parsing import year_month_parsing, page_title, file_name
 
 
-class TestReadCsv(unittest.TestCase):
+class TestDateParsing(unittest.TestCase):
     """
     Test correct parsing of index.
     """
@@ -27,7 +27,7 @@ class TestReadCsv(unittest.TestCase):
         year_name = "1993-04"
         output = page_title(year_name)
 
-        self.assertEqual(output, "April", "title not correct")
+        self.assertEqual(output, "April 1993", "title not correct")
 
     def test_filename(self):
         """

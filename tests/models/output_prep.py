@@ -9,7 +9,7 @@ from app.models.output_prep import create_all_links, create_latest_page, create_
 
 
 
-class TestReadCsv(unittest.TestCase):
+class TestOutputPrep(unittest.TestCase):
     """
     Test data transformation formatting.
     """
@@ -68,7 +68,12 @@ class TestReadCsv(unittest.TestCase):
         output_keys = list(create_all_links(pages_groups).keys())
         output_values = len(list(create_all_links(pages_groups).values()))
 
-        self.assertEqual(output_keys, ['Duben', 'Březen', 'Únor', 'Leden',], 'links not matching')
+        self.assertEqual(output_keys, [
+            'April 2020',
+            'March 2020',
+            'February 2020',
+            'January 2020',
+        ], 'links not matching')
         self.assertEqual(output_values, 4, 'number of links not matching')
 
     def test_create_latest_page(self):
@@ -144,7 +149,7 @@ class TestReadCsv(unittest.TestCase):
             '2019':{
                 'Září': 'september2019.html',
             },
-        }, output, "the archive is not correct")  
+        }, output, "the archive is not correct")
 
     def test_translate(self):
 
