@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ title }} | Telco Oběžník</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    <link href="css/style-main.min.css" rel="stylesheet">
+    <link href="css/style-main.min.css?{{ version }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/54b604a66f.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142122726-1"></script>
@@ -12,6 +12,8 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-142122726-1');
+      gtag('config', 'UA-142122726-1', {
+        appVersion: '{{ version }}',
+    });
     </script>
 </head>

@@ -5,6 +5,7 @@ Base controller for html pages.
 import os
 
 from jinja2 import FileSystemLoader, Environment
+from app.models.version import get_version
 
 
 class BaseController:
@@ -30,9 +31,11 @@ class BaseController:
         renders arguments to jinja views.
         """
         template = self.template_env.get_template(template_path)
+        version = get_version()
 
         return template.render(
             title=self.title,
             menu=self.menu,
+            version=version,
             **arguments,
         )
