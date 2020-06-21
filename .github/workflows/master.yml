@@ -24,7 +24,7 @@ jobs:
       - name: Deploy to Staging
         uses: sebastianpopp/ftp-action@releases/v2
         with:
-          host: stagingtelcobeznik.chytrak.cz
+          host: ftp4.webzdarma.cz
           user: stagingtelcobeznik.chytrak.cz
           password: ${{ secrets.FTP_PASSWORD }}
           localDir: "www"
